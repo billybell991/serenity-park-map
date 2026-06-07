@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serenity Park Interactive Map</title>
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    
+    <!-- Leaflet Geoman CSS (Drawing Tools) -->
+    <link rel="stylesheet" href="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.css" />
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Container for the map -->
+    <div id="map"></div>
+
+    <!-- Custom Editable UI Legend (Removed for now) -->
+    <!-- 
+    <div id="custom-legend" class="map-legend">...</div>
+    -->
+
+    <!-- Undo Button -->
+    <button id="undo-btn" class="admin-btn">Undo Last Action</button>
+    <button id="freehand-btn" class="admin-btn" style="top: 70px;">✏️ Freehand Draw</button>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    
+    <!-- Leaflet Geoman JS (Drawing Tools) -->
+    <script src="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.min.js"></script>
+
+    <!-- Our custom script -->
+    <script src="script.js"></script>
+</body>
+</html>
