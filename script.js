@@ -51,20 +51,58 @@ const b1Label = L.divIcon({
 });
 L.marker(b1Center, { icon: b1Label, interactive: false }).addTo(map);
 
-// Example of a solitary line drawn on the map (like the edge of B1)
-const b1EdgeLine = [
-    [758, 782],
-    [765, 789],
-    [772, 796],
-    [782, 806],
-    [790.1, 812.6], // Adjusted by user manual edit
-    [798, 819]
+// --- SITE B17 ---
+const b17AreaCoords = [
+    [412.2, 420.4],
+    [380.8, 374.0],
+    [295.2, 448.3],
+    [322.3, 495.6]
 ];
-L.polyline(b1EdgeLine, {
-    className: 'organic-line', // Dynamic line scaling and blur
-    lineCap: 'round',          // Rounded caps so it looks hand-drawn
-    lineJoin: 'round'
-}).addTo(map);
+L.polygon(b17AreaCoords, {
+    className: 'organic-polygon',
+    fillColor: '#b5c898',
+    fillOpacity: 1
+}).addTo(map)
+  .bindPopup("<b>Site B17</b>");
+
+// Add the label "B17" to the center of the site
+const b17Center = [353, 435];
+const b17Label = L.divIcon({
+    className: 'naked-site-label',
+    html: '<div class="scalable-label">B17</div>',
+    iconSize: [60, 60],
+    iconAnchor: [30, 30] // Anchor exactly in the center
+});
+L.marker(b17Center, { icon: b17Label, interactive: false }).addTo(map);
+
+// --- SITE S29 ---
+const s29AreaCoords = [
+    [870, 925], [869, 931], [866, 937], [858, 945], [832, 974],
+    [812, 998], [797, 1007], [774, 1013], [754, 1016], [750, 1017],
+    [747, 1014], [744, 1008], [744, 1001], [746, 990], [749, 979],
+    [752, 972], [757, 966], [765, 954], [776, 940], [787, 926],
+    [794, 916], [805, 923], [816, 924], [832, 919], [849, 917],
+    [861, 916], [866, 920]
+];
+L.polygon(s29AreaCoords, {
+    className: 'organic-polygon',
+    fillColor: '#b5c898',
+    fillOpacity: 1
+}).addTo(map)
+  .bindPopup("<b>Site S29</b>");
+
+// Add the label "S29" to the center of the site
+const s29Center = [807, 966];
+const s29Label = L.divIcon({
+    className: 'naked-site-label',
+    html: '<div class="scalable-label">S29</div>',
+    iconSize: [60, 60],
+    iconAnchor: [30, 30] // Anchor exactly in the center
+});
+L.marker(s29Center, { icon: s29Label, interactive: false }).addTo(map);
+
+// Example of a solitary line drawn on the map (like the edge of B1)
+// Removed line edge as it was just a proof of concept.
 
 // ----------------------------------------------------
 // SCALING ENGINE (Makes text shrink/grow with the map)
@@ -78,22 +116,6 @@ function updateLabelScale() {
 // Run on load and on every zoom change
 updateLabelScale();
 map.on('zoom', updateLabelScale);
-
-// Example A: A clean, custom text label for a camp site (e.g., Site 1)
-const site1Label = L.divIcon({
-    className: 'site-label premium-site',
-    html: '1'
-});
-L.marker([imageHeight * 0.5, imageWidth * 0.3], { icon: site1Label }).addTo(map)
-    .bindPopup("<b>Premium Site 1</b><br>Full hookups.");
-
-// Example B: A clickable popup on Mink Lake!
-const lakeMarker = L.marker([imageHeight * 0.8, imageWidth * 0.5]).addTo(map);
-lakeMarker.bindPopup("<b>Mink Lake</b><br>Enjoy the water.");
-
-// Example C: A clickable marker with a popup at the Office/Clubhouse
-const officeMarker = L.marker([imageHeight * 0.1, imageWidth * 0.8]).addTo(map);
-officeMarker.bindPopup("<b>Office & Clubhouse</b><br>Check in here!");
 
 // Removed B1 highlight per user request
 
