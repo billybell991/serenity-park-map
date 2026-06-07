@@ -115,6 +115,44 @@ body, html {
     filter: blur(0.6px); /* Very slight blur to soften the harsh digital edges */
 }
 
+/* Embedded In-Map Legend Text */
+.embedded-legend-text {
+    color: #333333;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 28px;
+    text-align: left;
+    transform: scale(var(--map-zoom-scale, 1));
+    transform-origin: center center;
+    will-change: transform;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+.embedded-legend-text h2 {
+    margin: 0 0 20px 0;
+    font-size: 42px;
+    border-bottom: 4px solid #4a3b32;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.embedded-legend-item {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    font-size: 32px;
+}
+
+.embedded-legend-item strong {
+    min-width: 90px;
+    display: inline-block;
+    color: #4a3b32;
+}
+
 .organic-line {
     stroke: #333333 !important;
     stroke-width: calc(4px * var(--map-zoom-scale, 1)) !important;

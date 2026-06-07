@@ -101,8 +101,34 @@ const s29Label = L.divIcon({
 });
 L.marker(s29Center, { icon: s29Label, interactive: false }).addTo(map);
 
-// Example of a solitary line drawn on the map (like the edge of B1)
-// Removed line edge as it was just a proof of concept.
+// --- IN-MAP LEGEND ---
+// The bounds you drew for the legend box
+const legendBounds = [[1126, 42], [1750, 536]];
+L.rectangle(legendBounds, {
+    className: 'organic-polygon', // Using the organic blur effect!
+    color: '#4a3b32',
+    weight: 3,
+    fillColor: '#f4f1e1', // Slight parchment/paper color to match organic vibe
+    fillOpacity: 0.95
+}).addTo(map);
+
+// Adding the scaled HTML text inside the bounds
+const legendCenter = [1438, 289]; // Center of the legend rectangle
+const legendHtml = `
+<div class="embedded-legend-text">
+    <h2>Legend</h2>
+    <div class="embedded-legend-item"><strong>DW</strong> Dog Walking</div>
+    <div class="embedded-legend-item"><strong>P</strong> Premium Site</div>
+    <div class="embedded-legend-item"><strong>T</strong> Tent Site</div>
+    <div class="embedded-legend-item"><strong>O</strong> Office</div>
+</div>`;
+const legendIcon = L.divIcon({
+    className: 'naked-site-label',
+    html: legendHtml,
+    iconSize: [400, 500],
+    iconAnchor: [200, 250] // Anchors directly to the center coordinates
+});
+L.marker(legendCenter, { icon: legendIcon, interactive: false }).addTo(map);
 
 // ----------------------------------------------------
 // SCALING ENGINE (Makes text shrink/grow with the map)
