@@ -366,6 +366,27 @@ L.marker([287, 311], {
     }) 
 }).addTo(map).bindPopup("<b>Dog Poop Disposal</b>");
 
+// --- GARBAGE AND RECYCLING ---
+L.marker([112, 858], { 
+    icon: L.divIcon({ 
+        className: 'naked-site-label', 
+        html: '<div class="scalable-label" style="font-size: 32px; filter: drop-shadow(1px 1px 0px rgba(0,0,0,1)) drop-shadow(-1px -1px 0px rgba(0,0,0,1)) drop-shadow(1px -1px 0px rgba(0,0,0,1)) drop-shadow(-1px 1px 0px rgba(0,0,0,1));">🗑️</div>', 
+        iconSize: [60,60], 
+        iconAnchor: [30,30] 
+    }),
+    draggable: true
+}).addTo(map).bindPopup("<b>Garbage</b>");
+
+L.marker([114, 912], { 
+    icon: L.divIcon({ 
+        className: 'naked-site-label', 
+        html: '<div class="scalable-label" style="font-size: 32px; filter: drop-shadow(1px 1px 0px rgba(0,0,0,1)) drop-shadow(-1px -1px 0px rgba(0,0,0,1)) drop-shadow(1px -1px 0px rgba(0,0,0,1)) drop-shadow(-1px 1px 0px rgba(0,0,0,1));">♻️</div>', 
+        iconSize: [60,60], 
+        iconAnchor: [30,30] 
+    }),
+    draggable: true 
+}).addTo(map).bindPopup("<b>Recycling</b>");
+
 // --- IN-MAP LEGEND ---
 // The bounds you drew for the legend box
 const legendBounds = [[1126, 42], [1750, 536]];
@@ -388,6 +409,12 @@ const legendHtml = `
     <div class="embedded-legend-item"><strong>CH</strong> Club House / Office</div>
     <div class="embedded-legend-item" style="display:flex; align-items:center; gap: 8px;">
         <span style="font-size: 28px; filter: drop-shadow(1px 1px 0px #000) drop-shadow(-1px -1px 0px #000) drop-shadow(1px -1px 0px #000) drop-shadow(-1px 1px 0px #000);">💩</span> Dog Poop Disposal
+    </div>
+    <div class="embedded-legend-item" style="display:flex; align-items:center; gap: 8px;">
+        <span style="font-size: 28px; filter: drop-shadow(1px 1px 0px #000) drop-shadow(-1px -1px 0px #000) drop-shadow(1px -1px 0px #000) drop-shadow(-1px 1px 0px #000);">🗑️</span> Garbage
+    </div>
+    <div class="embedded-legend-item" style="display:flex; align-items:center; gap: 8px;">
+        <span style="font-size: 28px; filter: drop-shadow(1px 1px 0px #000) drop-shadow(-1px -1px 0px #000) drop-shadow(1px -1px 0px #000) drop-shadow(-1px 1px 0px #000);">♻️</span> Recycling
     </div>
 </div>`;
 const legendIcon = L.divIcon({
