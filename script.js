@@ -114,10 +114,12 @@ const b3Label = L.divIcon({
 });
 L.marker(b3Center, { icon: b3Label, interactive: false }).addTo(map);
 
-// --- TEMP COOKIE CUTTERS (B4 & B5) ---
-// Placing them right next to B3 for you to drag
+// --- SITE B4 ---
 const b4AreaCoords = [
-    [768, 636], [687, 706], [650, 670], [731, 600]
+    [767.5, 636],
+    [687.4, 706.8],
+    [642, 660],
+    [726, 590.5]
 ];
 L.polygon(b4AreaCoords, {
     className: 'organic-polygon', 
@@ -125,14 +127,36 @@ L.polygon(b4AreaCoords, {
     fillOpacity: 1         
 }).addTo(map).bindPopup("<b>Site B4</b>");
 
+const b4Center = [706, 648];
+const b4Label = L.divIcon({
+    className: 'naked-site-label',
+    html: '<div class="scalable-label">B4</div>',
+    iconSize: [60, 60],
+    iconAnchor: [30, 30]
+});
+L.marker(b4Center, { icon: b4Label, interactive: false }).addTo(map);
+
+// --- SITE B5 ---
 const b5AreaCoords = [
-    [731, 600], [650, 670], [610, 630], [691, 560]
+    [725.5, 590],
+    [642.5, 662],
+    [593.5, 605.5],
+    [675, 533]
 ];
 L.polygon(b5AreaCoords, {
     className: 'organic-polygon', 
     fillColor: '#b5c898',  
     fillOpacity: 1         
 }).addTo(map).bindPopup("<b>Site B5</b>");
+
+const b5Center = [659, 598];
+const b5Label = L.divIcon({
+    className: 'naked-site-label',
+    html: '<div class="scalable-label">B5</div>',
+    iconSize: [60, 60],
+    iconAnchor: [30, 30]
+});
+L.marker(b5Center, { icon: b5Label, interactive: false }).addTo(map);
 
 // --- SITE B17 ---
 const b17AreaCoords = [
