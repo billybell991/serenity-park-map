@@ -347,6 +347,19 @@ const s29Label = L.divIcon({
 });
 L.marker(s29Center, { icon: s29Label, interactive: false }).addTo(map);
 
+// --- TEMP COOKIE CUTTERS (S24, S25, S28) ---
+const s24TempCoords = [[881, 796], [881, 856], [941, 856], [941, 796]];
+L.polygon(s24TempCoords, { className: 'organic-polygon', fillColor: '#b5c898', fillOpacity: 1 }).addTo(map).bindPopup("<b>Site S24</b>");
+L.marker([911, 826], { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label" style="opacity:0.5;">S24</div>', iconSize: [60,60], iconAnchor: [30,30] }), interactive: false }).addTo(map);
+
+const s25TempCoords = [[938, 850], [938, 908], [998, 908], [998, 850]];
+L.polygon(s25TempCoords, { className: 'organic-polygon', fillColor: '#b5c898', fillOpacity: 1 }).addTo(map).bindPopup("<b>Site S25</b>");
+L.marker([968, 879], { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label" style="opacity:0.5;">S25</div>', iconSize: [60,60], iconAnchor: [30,30] }), interactive: false }).addTo(map);
+
+const s28TempCoords = [[974, 881], [974, 941], [1034, 941], [1034, 881]];
+L.polygon(s28TempCoords, { className: 'organic-polygon', fillColor: '#b5c898', fillOpacity: 1 }).addTo(map).bindPopup("<b>Site S28</b>");
+L.marker([1004, 911], { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label" style="opacity:0.5;">S28</div>', iconSize: [60,60], iconAnchor: [30,30] }), interactive: false }).addTo(map);
+
 // --- DOG POOP DISPOSALS ---
 L.marker([1015, 1760], { 
     icon: L.divIcon({ 
