@@ -201,7 +201,7 @@ const johnMillerAreaCoords = [
     [292.2, 274.4], [279.5, 283.9]
 ];
 L.polygon(johnMillerAreaCoords, { className: 'organic-polygon', fillColor: '#b5c898', fillOpacity: 1 }).addTo(map).bindPopup("<b>John Miller Park</b>");
-L.marker([279, 365], { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label">JOHN MILLER<br>PARK</div>', iconSize: [150,60], iconAnchor: [75,30] }), interactive: false }).addTo(map);
+L.marker([296, 367], { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label">JOHN MILLER<br>PARK</div>', iconSize: [150,60], iconAnchor: [75,30] }), interactive: false }).addTo(map);
 
 // --- SITE B17 ---
 const b17AreaCoords = [
