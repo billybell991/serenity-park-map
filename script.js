@@ -41,10 +41,11 @@ L.polygon(dogAreaPatchCoords, {
 L.marker([293, 95], { 
     icon: L.divIcon({ 
         className: 'naked-site-label', 
-        html: '<div class="scalable-label" style="font-size: 32px; filter: drop-shadow(1px 1px 0px rgba(0,0,0,1)) drop-shadow(-1px -1px 0px rgba(0,0,0,1)) drop-shadow(1px -1px 0px rgba(0,0,0,1)) drop-shadow(-1px 1px 0px rgba(0,0,0,1));">🐕</div>', 
+        html: '<div class="scalable-label" style="font-size: 40px; filter: drop-shadow(1px 1px 0px rgba(0,0,0,1)) drop-shadow(-1px -1px 0px rgba(0,0,0,1)) drop-shadow(1px -1px 0px rgba(0,0,0,1)) drop-shadow(-1px 1px 0px rgba(0,0,0,1));">🐕</div>', 
         iconSize: [60,60], 
         iconAnchor: [30,30] 
-    }) 
+    }),
+    draggable: true
 }).addTo(map).bindPopup("<b>Dog Area</b>");
 
 // 4. Center the map on the image, zoomed out enough to see the whole thing
