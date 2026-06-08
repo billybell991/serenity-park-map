@@ -28,6 +28,25 @@ L.polygon(dropDWPatchCoords, {
     className: 'map-patch'
 }).addTo(map);
 
+const dogAreaPatchCoords = [
+    [264.5, 56.5], [321, 56.5], [321, 134.2], [264.5, 134.2]
+];
+L.polygon(dogAreaPatchCoords, { 
+    stroke: false, 
+    fillColor: '#778554', // Sampled from adjacent grass/dirt
+    fillOpacity: 1,
+    className: 'map-patch'
+}).addTo(map);
+
+L.marker([293, 95], { 
+    icon: L.divIcon({ 
+        className: 'naked-site-label', 
+        html: '<div class="scalable-label" style="font-size: 32px; filter: drop-shadow(0px 0px 2px rgba(255,255,255,1));">🐕</div>', 
+        iconSize: [60,60], 
+        iconAnchor: [30,30] 
+    }) 
+}).addTo(map).bindPopup("<b>Dog Area</b>");
+
 // 4. Center the map on the image, zoomed out enough to see the whole thing
 // We use localStorage to remember the zoom and center so it doesn't reset on refresh
 map.fitBounds(bounds);
