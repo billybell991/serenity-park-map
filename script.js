@@ -193,6 +193,16 @@ const b10AreaCoords = [
 L.polygon(b10AreaCoords, { className: 'organic-polygon', fillColor: '#b5c898', fillOpacity: 1 }).addTo(map).bindPopup("<b>Site B10</b>");
 L.marker([476, 1020], { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label">B10</div>', iconSize: [60,60], iconAnchor: [30,30] }), interactive: false }).addTo(map);
 
+// --- JOHN MILLER PARK ---
+const johnMillerAreaCoords = [
+    [259.2, 311.9], [239, 339.5], [224.5, 360.3], [207.2, 386.8], [190.9, 411.5],
+    [177.8, 437.3], [210.5, 448.6], [245.3, 455.7], [269.7, 454.3], [295.2, 448.3],
+    [380.8, 374], [344.6, 317.8], [327.9, 291.4], [318.1, 278.9], [306.5, 273.5],
+    [292.2, 274.4], [279.5, 283.9]
+];
+L.polygon(johnMillerAreaCoords, { className: 'organic-polygon', fillColor: '#b5c898', fillOpacity: 1 }).addTo(map).bindPopup("<b>John Miller Park</b>");
+L.marker([279, 365], { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label">JOHN MILLER PARK</div>', iconSize: [150,60], iconAnchor: [75,30] }), interactive: false }).addTo(map);
+
 // --- SITE B17 ---
 const b17AreaCoords = [
     [412.2, 420.4],
