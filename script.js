@@ -114,6 +114,26 @@ const b3Label = L.divIcon({
 });
 L.marker(b3Center, { icon: b3Label, interactive: false }).addTo(map);
 
+// --- TEMP COOKIE CUTTERS (B4 & B5) ---
+// Placing them right next to B3 for you to drag
+const b4AreaCoords = [
+    [768, 636], [687, 706], [650, 670], [731, 600]
+];
+L.polygon(b4AreaCoords, {
+    className: 'organic-polygon', 
+    fillColor: '#b5c898',  
+    fillOpacity: 1         
+}).addTo(map).bindPopup("<b>Site B4</b>");
+
+const b5AreaCoords = [
+    [731, 600], [650, 670], [610, 630], [691, 560]
+];
+L.polygon(b5AreaCoords, {
+    className: 'organic-polygon', 
+    fillColor: '#b5c898',  
+    fillOpacity: 1         
+}).addTo(map).bindPopup("<b>Site B5</b>");
+
 // --- SITE B17 ---
 const b17AreaCoords = [
     [412.2, 420.4],
