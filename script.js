@@ -342,21 +342,29 @@ const s28AreaCoords = [
 L.polygon(s28AreaCoords, { className: 'organic-polygon', fillColor: '#b5c898', fillOpacity: 1 }).addTo(map).bindPopup("<b>Site S28</b>");
 L.marker([953, 871], { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label">S28</div>', iconSize: [60,60], iconAnchor: [30,30] }), interactive: false }).addTo(map);
 
-// --- TEMP COOKIE CUTTERS (S26, S27, S_UNNAMED) ---
-const s26TempCoords = [[1218, 869], [1218, 929], [1278, 929], [1278, 869]];
-const p26 = L.polygon(s26TempCoords, { className: 'organic-polygon', fillColor: '#b5c898', fillOpacity: 1 }).addTo(map).bindPopup("<b>Site S26</b>");
-const m26 = L.marker([1248, 899], { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label" style="opacity:0.5;">S26</div>', iconSize: [60,60], iconAnchor: [30,30] }), interactive: false }).addTo(map);
-p26.on('pm:edit pm:drag pm:markerdrag', (e) => m26.setLatLng(e.target.getBounds().getCenter()));
+// --- SITE S26 ---
+const s26AreaCoords = [
+    [1201.2, 914], [1218, 929], [1267.7, 960.7], [1317.7, 879.2], [1288.7, 859.4],
+    [1273.5, 850.1], [1266, 844.3], [1258.8, 843], [1251.3, 848.9], [1243.7, 857.3], [1229, 875.8]
+];
+L.polygon(s26AreaCoords, { className: 'organic-polygon', fillColor: '#b5c898', fillOpacity: 1 }).addTo(map).bindPopup("<b>Site S26</b>");
+L.marker([1259, 902], { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label">S26</div>', iconSize: [60,60], iconAnchor: [30,30] }), interactive: false }).addTo(map);
 
-const s27TempCoords = [[1171, 932], [1171, 992], [1231, 992], [1231, 932]];
-const p27 = L.polygon(s27TempCoords, { className: 'organic-polygon', fillColor: '#b5c898', fillOpacity: 1 }).addTo(map).bindPopup("<b>Site S27</b>");
-const m27 = L.marker([1201, 962], { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label" style="opacity:0.5;">S27</div>', iconSize: [60,60], iconAnchor: [30,30] }), interactive: false }).addTo(map);
-p27.on('pm:edit pm:drag pm:markerdrag', (e) => m27.setLatLng(e.target.getBounds().getCenter()));
+// --- SITE S27 ---
+const s27AreaCoords = [
+    [1201.2, 914], [1185.7, 931.7], [1170.9, 950.6], [1147, 991], [1216.4, 1034.3],
+    [1224.8, 1015.4], [1235.3, 998.1], [1247.5, 991.4], [1267.7, 960.7]
+];
+L.polygon(s27AreaCoords, { className: 'organic-polygon', fillColor: '#b5c898', fillOpacity: 1 }).addTo(map).bindPopup("<b>Site S27</b>");
+L.marker([1207, 974], { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label">S27</div>', iconSize: [60,60], iconAnchor: [30,30] }), interactive: false }).addTo(map);
 
-const s29TempCoords = [[1115, 1016], [1115, 1076], [1175, 1076], [1175, 1016]];
-const p29 = L.polygon(s29TempCoords, { className: 'organic-polygon', fillColor: '#b5c898', fillOpacity: 1 }).addTo(map).bindPopup("<b>Site S29</b>");
-const m29 = L.marker([1145, 1046], { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label" style="opacity:0.5;">S29</div>', iconSize: [60,60], iconAnchor: [30,30] }), interactive: false }).addTo(map);
-p29.on('pm:edit pm:drag pm:markerdrag', (e) => m29.setLatLng(e.target.getBounds().getCenter()));
+// --- SITE S29 ---
+const s29AreaCoords = [
+    [1147, 991], [1082.7, 1080.5], [1098.6, 1091.5], [1114.6, 1098.2], [1132.7, 1100.7],
+    [1150.8, 1099.5], [1169.3, 1089], [1186.9, 1071.7], [1216.4, 1034.3]
+];
+L.polygon(s29AreaCoords, { className: 'organic-polygon', fillColor: '#b5c898', fillOpacity: 1 }).addTo(map).bindPopup("<b>Site S29</b>");
+L.marker([1150, 1046], { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label">S29</div>', iconSize: [60,60], iconAnchor: [30,30] }), interactive: false }).addTo(map);
 
 // --- DOG POOP DISPOSALS ---
 L.marker([1015, 1760], { 
