@@ -109,7 +109,7 @@ L.rectangle(legendBounds, {
     color: '#4a3b32',
     weight: 3,
     fillColor: '#f4f1e1', // Slight parchment/paper color to match organic vibe
-    fillOpacity: 0.95
+    fillOpacity: 1 // 100% solid so nothing bleeds through
 }).addTo(map);
 
 // Adding the scaled HTML text inside the bounds
@@ -118,9 +118,7 @@ const legendHtml = `
 <div class="embedded-legend-text">
     <h2>Legend</h2>
     <div class="embedded-legend-item"><strong>DW</strong> Dog Walking</div>
-    <div class="embedded-legend-item"><strong>P</strong> Premium Site</div>
-    <div class="embedded-legend-item"><strong>T</strong> Tent Site</div>
-    <div class="embedded-legend-item"><strong>O</strong> Office</div>
+    <div class="embedded-legend-item"><strong>CH</strong> Club House / Office</div>
 </div>`;
 const legendIcon = L.divIcon({
     className: 'naked-site-label',
