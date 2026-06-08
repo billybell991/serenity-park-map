@@ -545,6 +545,17 @@ const l1AreaCoords = [
 L.polygon(l1AreaCoords, { className: 'organic-polygon', fillColor: '#b5c898', fillOpacity: 1 }).addTo(map).bindPopup("<b>Site L1</b>");
 L.marker([1570, 967.9], { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label">L1</div>', iconSize: [60,60], iconAnchor: [30,30] }), interactive: false }).addTo(map);
 
+// --- COSMETIC PATCHES ---
+// User requested patching over a painted "G" on the image without leaving a mess
+L.circle([1399.7, 1737.7], {
+    radius: 12,
+    fillColor: '#c2bca7', 
+    fillOpacity: 1,
+    color: '#c2bca7',
+    weight: 1,
+    interactive: false
+}).addTo(map);
+
 // --- DOG POOP DISPOSALS ---
 L.marker([1015, 1760], { 
     icon: L.divIcon({ 
