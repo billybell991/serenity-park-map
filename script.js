@@ -429,26 +429,33 @@ const p9AreaCoords = [
 L.polygon(p9AreaCoords, { className: 'organic-polygon', fillColor: '#b5c898', fillOpacity: 1 }).addTo(map).bindPopup("<b>Site P9</b>");
 L.marker([1338.9, 1504.8], { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label">P9</div>', iconSize: [60,60], iconAnchor: [30,30] }), interactive: false }).addTo(map);
 
-// --- TEMP COOKIE CUTTERS (Blank, P12, P11, P10) ---
-const pBlankTempCoords = [[1427, 1501], [1427, 1561], [1487, 1561], [1487, 1501]];
-const pBlankPoly = L.polygon(pBlankTempCoords, { className: 'organic-polygon', fillColor: '#b5c898', fillOpacity: 1 }).addTo(map).bindPopup("<b>Unknown</b>");
-const pBlankMark = L.marker([1457, 1531], { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label" style="opacity:0.5;">?</div>', iconSize: [60,60], iconAnchor: [30,30] }), interactive: false }).addTo(map);
-pBlankPoly.on('pm:edit pm:drag pm:markerdrag', (e) => pBlankMark.setLatLng(e.target.getBounds().getCenter()));
+// --- UNKNOWN SITE (Top Left of P12) ---
+const pBlankAreaCoords = [
+    [1426.9, 1491.3], [1423.4, 1507.6], [1417.4, 1522.4], [1410.7, 1538.7], [1402.6, 1552.8], [1486.3, 1575.1], [1509, 1515.3]
+];
+L.polygon(pBlankAreaCoords, { className: 'organic-polygon', fillColor: '#b5c898', fillOpacity: 1 }).addTo(map).bindPopup("<b>Unknown</b>");
+L.marker([1455.8, 1533.2], { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label">?</div>', iconSize: [60,60], iconAnchor: [30,30] }), interactive: false }).addTo(map);
 
-const p12TempCoords = [[1404, 1554], [1404, 1614], [1464, 1614], [1464, 1554]];
-const p12Poly = L.polygon(p12TempCoords, { className: 'organic-polygon', fillColor: '#b5c898', fillOpacity: 1 }).addTo(map).bindPopup("<b>Site P12</b>");
-const p12Mark = L.marker([1434, 1584], { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label" style="opacity:0.5;">P12</div>', iconSize: [60,60], iconAnchor: [30,30] }), interactive: false }).addTo(map);
-p12Poly.on('pm:edit pm:drag pm:markerdrag', (e) => p12Mark.setLatLng(e.target.getBounds().getCenter()));
+// --- SITE P12 ---
+const p12AreaCoords = [
+    [1402.6, 1552.8], [1387.3, 1581.8], [1373.9, 1611.9], [1463, 1632.4], [1486.3, 1575.1]
+];
+L.polygon(p12AreaCoords, { className: 'organic-polygon', fillColor: '#b5c898', fillOpacity: 1 }).addTo(map).bindPopup("<b>Site P12</b>");
+L.marker([1430.1, 1592.6], { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label">P12</div>', iconSize: [60,60], iconAnchor: [30,30] }), interactive: false }).addTo(map);
 
-const p11TempCoords = [[1304, 1550], [1304, 1610], [1364, 1610], [1364, 1550]];
-const p11Poly = L.polygon(p11TempCoords, { className: 'organic-polygon', fillColor: '#b5c898', fillOpacity: 1 }).addTo(map).bindPopup("<b>Site P11</b>");
-const p11Mark = L.marker([1334, 1580], { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label" style="opacity:0.5;">P11</div>', iconSize: [60,60], iconAnchor: [30,30] }), interactive: false }).addTo(map);
-p11Poly.on('pm:edit pm:drag pm:markerdrag', (e) => p11Mark.setLatLng(e.target.getBounds().getCenter()));
+// --- SITE P11 ---
+const p11AreaCoords = [
+    [1329.2, 1532.9], [1282.7, 1640.5], [1296.8, 1641.9], [1311, 1640.5], [1325.8, 1638.7], [1339.6, 1634.8], [1351.1, 1613.3], [1360.2, 1591], [1369.5, 1567.8], [1376.8, 1544.8]
+];
+L.polygon(p11AreaCoords, { className: 'organic-polygon', fillColor: '#b5c898', fillOpacity: 1 }).addTo(map).bindPopup("<b>Site P11</b>");
+L.marker([1329.8, 1587.4], { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label">P11</div>', iconSize: [60,60], iconAnchor: [30,30] }), interactive: false }).addTo(map);
 
-const p10TempCoords = [[1253, 1548], [1253, 1608], [1313, 1608], [1313, 1548]];
-const p10Poly = L.polygon(p10TempCoords, { className: 'organic-polygon', fillColor: '#b5c898', fillOpacity: 1 }).addTo(map).bindPopup("<b>Site P10</b>");
-const p10Mark = L.marker([1283, 1578], { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label" style="opacity:0.5;">P10</div>', iconSize: [60,60], iconAnchor: [30,30] }), interactive: false }).addTo(map);
-p10Poly.on('pm:edit pm:drag pm:markerdrag', (e) => p10Mark.setLatLng(e.target.getBounds().getCenter()));
+// --- SITE P10 ---
+const p10AreaCoords = [
+    [1284.1, 1521.6], [1270.7, 1550], [1256, 1576.2], [1240.3, 1602.5], [1232.3, 1615.5], [1228.3, 1622.2], [1226, 1628.7], [1231.3, 1633.5], [1236.8, 1636.5], [1251.8, 1639.2], [1282.7, 1640.5], [1329.2, 1532.9]
+];
+L.polygon(p10AreaCoords, { className: 'organic-polygon', fillColor: '#b5c898', fillOpacity: 1 }).addTo(map).bindPopup("<b>Site P10</b>");
+L.marker([1277.6, 1581], { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label">P10</div>', iconSize: [60,60], iconAnchor: [30,30] }), interactive: false }).addTo(map);
 
 // --- SITE P13 ---
 const p13AreaCoords = [
