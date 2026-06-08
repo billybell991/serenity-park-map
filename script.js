@@ -398,13 +398,13 @@ const l5AreaCoords = [
     [1710.1, 780.1], [1699.4, 765.3], [1686.9, 758.1], [1653, 746.2]
 ];
 L.polygon(l5AreaCoords, { className: 'organic-polygon', fillColor: '#b5c898', fillOpacity: 1 }).addTo(map).bindPopup("<b>Site L5</b>");
-L.marker([1653, 781], { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label">L5</div>', iconSize: [60,60], iconAnchor: [30,30] }), interactive: false }).addTo(map);
+L.marker([1653, 781], { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label">L5</div>', iconSize: [60,60], iconAnchor: [30,30] }), draggable: true }).addTo(map);
 
 const l6AreaCoords = [
     [1513.6, 750.1], [1575, 849.3], [1591.4, 839.6], [1609.6, 831.8], [1595.9, 729.6], [1552.7, 737.5]
 ];
 L.polygon(l6AreaCoords, { className: 'organic-polygon', fillColor: '#b5c898', fillOpacity: 1 }).addTo(map).bindPopup("<b>Site L6</b>");
-L.marker([1562, 789], { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label">L6</div>', iconSize: [60,60], iconAnchor: [30,30] }), interactive: false }).addTo(map);
+L.marker([1562, 789], { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label">L6</div>', iconSize: [60,60], iconAnchor: [30,30] }), draggable: true }).addTo(map);
 
 const l7AreaCoords = [
     [1456.4, 802.6], [1538, 882.1], [1555.2, 866.1], [1575, 849.3], [1513.6, 750.1], [1483.8, 775.7]
@@ -416,7 +416,7 @@ const l8AreaCoords = [
     [1456.4, 802.6], [1423.6, 872.4], [1490.5, 926.2], [1502.3, 917], [1514, 905.6], [1538, 882.1]
 ];
 L.polygon(l8AreaCoords, { className: 'organic-polygon', fillColor: '#b5c898', fillOpacity: 1 }).addTo(map).bindPopup("<b>Site L8</b>");
-L.marker([1481, 864], { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label">L8</div>', iconSize: [60,60], iconAnchor: [30,30] }), interactive: false }).addTo(map);
+L.marker([1481, 864], { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label">L8</div>', iconSize: [60,60], iconAnchor: [30,30] }), draggable: true }).addTo(map);
 
 // --- DOG POOP DISPOSALS ---
 L.marker([1015, 1760], { 
