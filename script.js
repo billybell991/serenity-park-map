@@ -548,7 +548,7 @@ L.marker([1570, 967.9], { icon: L.divIcon({ className: 'naked-site-label', html:
 // --- COSMETIC PATCHES ---
 // User requested patching over a painted "G" on the image without leaving a mess
 L.circle([1399.7, 1737.7], {
-    radius: 12,
+    radius: 17,
     fillColor: '#c2bca7', 
     fillOpacity: 1,
     color: '#c2bca7',
