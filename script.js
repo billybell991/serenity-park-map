@@ -383,6 +383,13 @@ L.marker([114, 912], {
         iconSize: [60,60], 
         iconAnchor: [30,30] 
     })
+}).addTo(map).bindPopup("<b>Recycling</b>");
+
+// --- IN-MAP LEGEND ---
+// The bounds you drew for the legend box
+const legendBounds = [[1126, 42], [1750, 536]];
+L.rectangle(legendBounds, {
+    className: 'organic-polygon', // Using the organic blur effect!
     color: '#4a3b32',
     weight: 3,
     fillColor: '#f4f1e1', // Slight parchment/paper color to match organic vibe
