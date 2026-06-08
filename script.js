@@ -256,7 +256,7 @@ L.polygon(johnMillerAreaCoords, { className: 'organic-polygon', fillColor: '#b5c
 L.marker([278, 386], { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label">JOHN MILLER<br>PARK</div>', iconSize: [150,60], iconAnchor: [75,30] }), interactive: false }).addTo(map);
 
 // --- POND ---
-L.marker([416, 1186], { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label">POND</div>', iconSize: [150,60], iconAnchor: [75,30] }), draggable: true }).addTo(map);
+L.marker([419, 1187], { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label">POND</div>', iconSize: [150,60], iconAnchor: [75,30] }) }).addTo(map);
 
 // --- SITE B17 ---
 const b17AreaCoords = [
@@ -373,8 +373,7 @@ L.marker([112, 858], {
         html: '<div class="scalable-label" style="font-size: 32px; filter: drop-shadow(1px 1px 0px rgba(0,0,0,1)) drop-shadow(-1px -1px 0px rgba(0,0,0,1)) drop-shadow(1px -1px 0px rgba(0,0,0,1)) drop-shadow(-1px 1px 0px rgba(0,0,0,1));">🗑️</div>', 
         iconSize: [60,60], 
         iconAnchor: [30,30] 
-    }),
-    draggable: true
+    })
 }).addTo(map).bindPopup("<b>Garbage</b>");
 
 L.marker([114, 912], { 
@@ -383,15 +382,7 @@ L.marker([114, 912], {
         html: '<div class="scalable-label" style="font-size: 32px; filter: drop-shadow(1px 1px 0px rgba(0,0,0,1)) drop-shadow(-1px -1px 0px rgba(0,0,0,1)) drop-shadow(1px -1px 0px rgba(0,0,0,1)) drop-shadow(-1px 1px 0px rgba(0,0,0,1));">♻️</div>', 
         iconSize: [60,60], 
         iconAnchor: [30,30] 
-    }),
-    draggable: true 
-}).addTo(map).bindPopup("<b>Recycling</b>");
-
-// --- IN-MAP LEGEND ---
-// The bounds you drew for the legend box
-const legendBounds = [[1126, 42], [1750, 536]];
-L.rectangle(legendBounds, {
-    className: 'organic-polygon', // Using the organic blur effect!
+    })
     color: '#4a3b32',
     weight: 3,
     fillColor: '#f4f1e1', // Slight parchment/paper color to match organic vibe
