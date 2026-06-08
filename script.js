@@ -87,7 +87,7 @@ L.polygon(b1AreaCoords, {
     fillColor: '#b5c898',  
     fillOpacity: 1         
 }).addTo(map)
-  .bindPopup("<b>Site B1</b>");
+  .bindPopup("<b>B1 - Billy & Heather</b>");
 
 // Add the label "B1" to the center of the site
 const b1Center = [815, 765]; 
