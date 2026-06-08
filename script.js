@@ -457,11 +457,12 @@ const p10AreaCoords = [
 L.polygon(p10AreaCoords, { className: 'organic-polygon', fillColor: '#b5c898', fillOpacity: 1 }).addTo(map).bindPopup("<b>Site P10</b>");
 L.marker([1277.6, 1581], { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label">P10</div>', iconSize: [60,60], iconAnchor: [30,30] }), interactive: false }).addTo(map);
 
-// --- TEMP COOKIE CUTTERS (T1) ---
-const t1TempCoords = [[1171, 1680], [1171, 1740], [1231, 1740], [1231, 1680]];
-const t1Poly = L.polygon(t1TempCoords, { className: 'organic-polygon', fillColor: '#b5c898', fillOpacity: 1 }).addTo(map).bindPopup("<b>Site T1</b>");
-const t1Mark = L.marker([1201, 1710], { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label" style="opacity:0.5;">T1</div>', iconSize: [60,60], iconAnchor: [30,30] }), interactive: false }).addTo(map);
-t1Poly.on('pm:edit pm:drag pm:markerdrag', (e) => t1Mark.setLatLng(e.target.getBounds().getCenter()));
+// --- SITE T1 ---
+const t1AreaCoords = [
+    [1173.2, 1678.6], [1135.1, 1731.5], [1259.9, 1742.8], [1265.9, 1689.9]
+];
+L.polygon(t1AreaCoords, { className: 'organic-polygon', fillColor: '#b5c898', fillOpacity: 1 }).addTo(map).bindPopup("<b>Site T1</b>");
+L.marker([1200.5, 1710.7], { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label">T1</div>', iconSize: [60,60], iconAnchor: [30,30] }), interactive: false }).addTo(map);
 
 // --- SITE P13 ---
 const p13AreaCoords = [
