@@ -115,6 +115,11 @@ body, html {
     filter: blur(0.6px); /* Very slight blur to soften the harsh digital edges */
 }
 
+/* Invisible patch for blending out old map features */
+.map-patch {
+    filter: blur(3px); /* Heavier blur to blend seamlessly */
+}
+
 /* Embedded In-Map Legend Text */
 .embedded-legend-text {
     color: #333333;

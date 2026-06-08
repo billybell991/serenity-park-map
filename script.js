@@ -17,6 +17,17 @@ const bounds = [[0, 0], [imageHeight, imageWidth]];
 // 3. Add the image to the map as an overlay
 const imageOverlay = L.imageOverlay('park_map_naked.png', bounds).addTo(map);
 
+// --- MAP PATCHES (Covering up old printed data) ---
+const dropDWPatchCoords = [
+    [46.7, 110.1], [108.9, 110.1], [108.9, 200.6], [46.7, 200.6]
+];
+L.polygon(dropDWPatchCoords, { 
+    stroke: false, 
+    fillColor: '#f4e4c9', // Sampled from the adjacent background
+    fillOpacity: 1,
+    className: 'map-patch'
+}).addTo(map);
+
 // 4. Center the map on the image, zoomed out enough to see the whole thing
 // We use localStorage to remember the zoom and center so it doesn't reset on refresh
 map.fitBounds(bounds);
