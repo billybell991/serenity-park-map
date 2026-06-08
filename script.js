@@ -368,6 +368,23 @@ const s28AreaCoords = [
 L.polygon(s28AreaCoords, { className: 'organic-polygon', fillColor: '#b5c898', fillOpacity: 1 }).addTo(map).bindPopup("<b>Site S28</b>");
 L.marker([953, 871], { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label">S28</div>', iconSize: [60,60], iconAnchor: [30,30] }), interactive: false }).addTo(map);
 
+// --- TEMP COOKIE CUTTERS (S26, S27, S_UNNAMED) ---
+const s26TempCoords = [[1218, 869], [1218, 929], [1278, 929], [1278, 869]];
+const p26 = L.polygon(s26TempCoords, { className: 'organic-polygon', fillColor: '#b5c898', fillOpacity: 1 }).addTo(map).bindPopup("<b>Site S26</b>");
+const m26 = L.marker([1248, 899], { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label" style="opacity:0.5;">S26</div>', iconSize: [60,60], iconAnchor: [30,30] }), interactive: false }).addTo(map);
+p26.on('pm:edit pm:drag pm:markerdrag', (e) => m26.setLatLng(e.target.getBounds().getCenter()));
+
+const s27TempCoords = [[1171, 932], [1171, 992], [1231, 992], [1231, 932]];
+const p27 = L.polygon(s27TempCoords, { className: 'organic-polygon', fillColor: '#b5c898', fillOpacity: 1 }).addTo(map).bindPopup("<b>Site S27</b>");
+const m27 = L.marker([1201, 962], { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label" style="opacity:0.5;">S27</div>', iconSize: [60,60], iconAnchor: [30,30] }), interactive: false }).addTo(map);
+p27.on('pm:edit pm:drag pm:markerdrag', (e) => m27.setLatLng(e.target.getBounds().getCenter()));
+
+// You mentioned S29, but S29 is already locked in! Using S30 for the final pin temporarily.
+const s30TempCoords = [[1115, 1016], [1115, 1076], [1175, 1076], [1175, 1016]];
+const p30 = L.polygon(s30TempCoords, { className: 'organic-polygon', fillColor: '#b5c898', fillOpacity: 1 }).addTo(map).bindPopup("<b>Site S30</b>");
+const m30 = L.marker([1145, 1046], { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label" style="opacity:0.5;">S30</div>', iconSize: [60,60], iconAnchor: [30,30] }), interactive: false }).addTo(map);
+p30.on('pm:edit pm:drag pm:markerdrag', (e) => m30.setLatLng(e.target.getBounds().getCenter()));
+
 // --- DOG POOP DISPOSALS ---
 L.marker([1015, 1760], { 
     icon: L.divIcon({ 
