@@ -18,8 +18,25 @@ const bounds = [[0, 0], [imageHeight, imageWidth]];
 const imageOverlay = L.imageOverlay('park_map_naked.png', bounds).addTo(map);
 
 // 4. Center the map on the image, zoomed out enough to see the whole thing
+// We use localStorage to remember the zoom and center so it doesn't reset on refresh
 map.fitBounds(bounds);
-map.zoomOut(0.5); // Add a little padding so it isn't squeezed to the edge
+map.zoomOut(0.5);
+
+const savedZoom = localStorage.getItem('mapZoom');
+const savedLat = localStorage.getItem('mapLat');
+const savedLng = localStorage.getItem('mapLng');
+
+if (savedZoom && savedLat && savedLng) {
+    map.setView([parseFloat(savedLat), parseFloat(savedLng)], parseFloat(savedZoom));
+}
+
+// Save position whenever user halts moving or zooming
+map.on('moveend', function() {
+    const center = map.getCenter();
+    localStorage.setItem('mapZoom', map.getZoom());
+    localStorage.setItem('mapLat', center.lat);
+    localStorage.setItem('mapLng', center.lng);
+});
 
 // ==========================================
 // ADDING LABELS & POIS TO THE NAKED MAP
