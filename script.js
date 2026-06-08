@@ -321,32 +321,6 @@ L.polygon(b16AreaCoords, {
 const b16Label = L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label">B16</div>', iconSize: [60,60], iconAnchor: [30,30] });
 L.marker([449, 570], { icon: b16Label, interactive: false }).addTo(map);
 
-// --- SITE S29 ---
-const s29AreaCoords = [
-    [870, 925], [869, 931], [866, 937], [858, 945], [832, 974],
-    [812, 998], [797, 1007], [774, 1013], [754, 1016], [750, 1017],
-    [747, 1014], [744, 1008], [744, 1001], [746, 990], [749, 979],
-    [752, 972], [757, 966], [765, 954], [776, 940], [787, 926],
-    [794, 916], [805, 923], [816, 924], [832, 919], [849, 917],
-    [861, 916], [866, 920]
-];
-L.polygon(s29AreaCoords, {
-    className: 'organic-polygon',
-    fillColor: '#b5c898',
-    fillOpacity: 1
-}).addTo(map)
-  .bindPopup("<b>Site S29</b>");
-
-// Add the label "S29" to the center of the site
-const s29Center = [807, 966];
-const s29Label = L.divIcon({
-    className: 'naked-site-label',
-    html: '<div class="scalable-label">S29</div>',
-    iconSize: [60, 60],
-    iconAnchor: [30, 30] // Anchor exactly in the center
-});
-L.marker(s29Center, { icon: s29Label, interactive: false }).addTo(map);
-
 // --- SITE S24 ---
 const s24AreaCoords = [
     [983.8, 978.4], [1009.5, 1010.8], [1036, 1041.4], [1110.4, 956.5], [1063.3, 904.4]
@@ -379,11 +353,10 @@ const p27 = L.polygon(s27TempCoords, { className: 'organic-polygon', fillColor: 
 const m27 = L.marker([1201, 962], { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label" style="opacity:0.5;">S27</div>', iconSize: [60,60], iconAnchor: [30,30] }), interactive: false }).addTo(map);
 p27.on('pm:edit pm:drag pm:markerdrag', (e) => m27.setLatLng(e.target.getBounds().getCenter()));
 
-// You mentioned S29, but S29 is already locked in! Using S30 for the final pin temporarily.
-const s30TempCoords = [[1115, 1016], [1115, 1076], [1175, 1076], [1175, 1016]];
-const p30 = L.polygon(s30TempCoords, { className: 'organic-polygon', fillColor: '#b5c898', fillOpacity: 1 }).addTo(map).bindPopup("<b>Site S30</b>");
-const m30 = L.marker([1145, 1046], { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label" style="opacity:0.5;">S30</div>', iconSize: [60,60], iconAnchor: [30,30] }), interactive: false }).addTo(map);
-p30.on('pm:edit pm:drag pm:markerdrag', (e) => m30.setLatLng(e.target.getBounds().getCenter()));
+const s29TempCoords = [[1115, 1016], [1115, 1076], [1175, 1076], [1175, 1016]];
+const p29 = L.polygon(s29TempCoords, { className: 'organic-polygon', fillColor: '#b5c898', fillOpacity: 1 }).addTo(map).bindPopup("<b>Site S29</b>");
+const m29 = L.marker([1145, 1046], { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label" style="opacity:0.5;">S29</div>', iconSize: [60,60], iconAnchor: [30,30] }), interactive: false }).addTo(map);
+p29.on('pm:edit pm:drag pm:markerdrag', (e) => m29.setLatLng(e.target.getBounds().getCenter()));
 
 // --- DOG POOP DISPOSALS ---
 L.marker([1015, 1760], { 
