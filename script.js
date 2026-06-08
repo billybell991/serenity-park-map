@@ -293,21 +293,23 @@ const s29Label = L.divIcon({
 L.marker(s29Center, { icon: s29Label, interactive: false }).addTo(map);
 
 // --- DOG POOP DISPOSALS ---
-const poopCoords = [
-    [1015, 1760],
-    [368, -57]
-];
-poopCoords.forEach(coord => {
-    L.marker(coord, { 
-        icon: L.divIcon({ 
-            className: 'naked-site-label', 
-            html: '<div class="scalable-label" style="font-size: 32px; filter: drop-shadow(0px 0px 2px rgba(255,255,255,1));">💩</div>', 
-            iconSize: [60,60], 
-            iconAnchor: [30,30] 
-        }), 
-        interactive: false 
-    }).addTo(map);
-});
+L.marker([1015, 1760], { 
+    icon: L.divIcon({ 
+        className: 'naked-site-label', 
+        html: '<div class="scalable-label" style="font-size: 32px; filter: drop-shadow(0px 0px 2px rgba(255,255,255,1));">💩</div>', 
+        iconSize: [60,60], 
+        iconAnchor: [30,30] 
+    }) 
+}).addTo(map).bindPopup("<b>Dog Poop Disposal</b>");
+
+L.marker([287, 311], { 
+    icon: L.divIcon({ 
+        className: 'naked-site-label', 
+        html: '<div class="scalable-label" style="font-size: 32px; filter: drop-shadow(0px 0px 2px rgba(255,255,255,1));">💩</div>', 
+        iconSize: [60,60], 
+        iconAnchor: [30,30] 
+    }) 
+}).addTo(map).bindPopup("<b>Dog Poop Disposal</b>");
 
 // --- IN-MAP LEGEND ---
 // The bounds you drew for the legend box
