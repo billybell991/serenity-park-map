@@ -74,6 +74,29 @@ const b2Label = L.divIcon({
 });
 L.marker(b2Center, { icon: b2Label, interactive: false }).addTo(map);
 
+// --- SITE B3 ---
+const b3AreaCoords = [
+    [803, 675],
+    [724, 746],
+    [687.4, 706.8],
+    [768.6, 636.6]
+];
+L.polygon(b3AreaCoords, {
+    className: 'organic-polygon', 
+    fillColor: '#b5c898',  
+    fillOpacity: 1         
+}).addTo(map)
+  .bindPopup("<b>Site B3</b>");
+
+const b3Center = [746, 691]; 
+const b3Label = L.divIcon({
+    className: 'naked-site-label',
+    html: '<div class="scalable-label">B3</div>',
+    iconSize: [60, 60],
+    iconAnchor: [30, 30]
+});
+L.marker(b3Center, { icon: b3Label, interactive: false }).addTo(map);
+
 // --- SITE B17 ---
 const b17AreaCoords = [
     [412.2, 420.4],
