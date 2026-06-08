@@ -430,6 +430,27 @@ L.marker([114, 912], {
     })
 }).addTo(map).bindPopup("<b>Recycling</b>");
 
+// --- PARKING ---
+L.marker([1356, 693], { 
+    icon: L.divIcon({ 
+        className: 'naked-site-label', 
+        html: '<div class="scalable-label" style="font-size: 32px; filter: drop-shadow(1px 1px 0px rgba(0,0,0,1)) drop-shadow(-1px -1px 0px rgba(0,0,0,1)) drop-shadow(1px -1px 0px rgba(0,0,0,1)) drop-shadow(-1px 1px 0px rgba(0,0,0,1));">🅿️</div>', 
+        iconSize: [60,60], 
+        iconAnchor: [30,30] 
+    }),
+    draggable: true
+}).addTo(map).bindPopup("<b>Parking</b>");
+
+L.marker([1076, 1491], { 
+    icon: L.divIcon({ 
+        className: 'naked-site-label', 
+        html: '<div class="scalable-label" style="font-size: 32px; filter: drop-shadow(1px 1px 0px rgba(0,0,0,1)) drop-shadow(-1px -1px 0px rgba(0,0,0,1)) drop-shadow(1px -1px 0px rgba(0,0,0,1)) drop-shadow(-1px 1px 0px rgba(0,0,0,1));">🅿️</div>', 
+        iconSize: [60,60], 
+        iconAnchor: [30,30] 
+    }),
+    draggable: true
+}).addTo(map).bindPopup("<b>Parking</b>");
+
 // --- IN-MAP LEGEND ---
 // The bounds you drew for the legend box
 const legendBounds = [[1126, 42], [1750, 536]];
@@ -458,6 +479,9 @@ const legendHtml = `
     </div>
     <div class="embedded-legend-item" style="display:flex; align-items:center; gap: 8px;">
         <span style="font-size: 28px; filter: drop-shadow(1px 1px 0px #000) drop-shadow(-1px -1px 0px #000) drop-shadow(1px -1px 0px #000) drop-shadow(-1px 1px 0px #000);">♻️</span> Recycling
+    </div>
+    <div class="embedded-legend-item" style="display:flex; align-items:center; gap: 8px;">
+        <span style="font-size: 28px; filter: drop-shadow(1px 1px 0px #000) drop-shadow(-1px -1px 0px #000) drop-shadow(1px -1px 0px #000) drop-shadow(-1px 1px 0px #000);">🅿️</span> Parking
     </div>
 </div>`;
 const legendIcon = L.divIcon({
