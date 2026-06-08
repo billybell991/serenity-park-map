@@ -182,28 +182,44 @@ const b17Label = L.divIcon({
 });
 L.marker(b17Center, { icon: b17Label, interactive: false }).addTo(map);
 
-// --- TEMP COOKIE CUTTERS (B14, B15, B16) ---
-// Placed near B17 so you can drag them to their final locations
-const b14TempCoords = [[380, 490], [380, 550], [320, 550], [320, 490]];
-L.polygon(b14TempCoords, {
+// --- SITE B14 ---
+const b14AreaCoords = [
+    [412.8, 422.3],
+    [443.6, 466.7],
+    [354.4, 541.1],
+    [322.3, 495.6]
+];
+L.polygon(b14AreaCoords, {
     className: 'organic-polygon', fillColor: '#b5c898', fillOpacity: 1
 }).addTo(map).bindPopup("<b>Site B14</b>");
-const b14Label = L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label" style="opacity:0.5;">B14</div>', iconSize: [60,60], iconAnchor: [30,30] });
-L.marker([350, 520], { icon: b14Label, interactive: false }).addTo(map);
+const b14Label = L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label">B14</div>', iconSize: [60,60], iconAnchor: [30,30] });
+L.marker([383, 481], { icon: b14Label, interactive: false }).addTo(map);
 
-const b15TempCoords = [[380, 570], [380, 630], [320, 630], [320, 570]];
-L.polygon(b15TempCoords, {
+// --- SITE B15 ---
+const b15AreaCoords = [
+    [443.5, 467.0],
+    [473.4, 510.0],
+    [386.4, 580.6],
+    [354.4, 541.1]
+];
+L.polygon(b15AreaCoords, {
     className: 'organic-polygon', fillColor: '#b5c898', fillOpacity: 1
 }).addTo(map).bindPopup("<b>Site B15</b>");
-const b15Label = L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label" style="opacity:0.5;">B15</div>', iconSize: [60,60], iconAnchor: [30,30] });
-L.marker([350, 600], { icon: b15Label, interactive: false }).addTo(map);
+const b15Label = L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label">B15</div>', iconSize: [60,60], iconAnchor: [30,30] });
+L.marker([414, 524], { icon: b15Label, interactive: false }).addTo(map);
 
-const b16TempCoords = [[380, 650], [380, 710], [320, 710], [320, 650]];
-L.polygon(b16TempCoords, {
+// --- SITE B16 ---
+const b16AreaCoords = [
+    [473.3, 510.8],
+    [510.8, 560.0],
+    [429.3, 629.8],
+    [386.4, 580.6]
+];
+L.polygon(b16AreaCoords, {
     className: 'organic-polygon', fillColor: '#b5c898', fillOpacity: 1
 }).addTo(map).bindPopup("<b>Site B16</b>");
-const b16Label = L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label" style="opacity:0.5;">B16</div>', iconSize: [60,60], iconAnchor: [30,30] });
-L.marker([350, 680], { icon: b16Label, interactive: false }).addTo(map);
+const b16Label = L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label">B16</div>', iconSize: [60,60], iconAnchor: [30,30] });
+L.marker([449, 570], { icon: b16Label, interactive: false }).addTo(map);
 
 // --- SITE S29 ---
 const s29AreaCoords = [
@@ -345,23 +361,11 @@ map.on('click', function(e) {
     if (map.pm.Draw.getActiveShape()) return; 
     // Don't drop a pin if we are using the freehand tool
     if (isDrawingFreehand) return;
-
+    // Don't drop a pin if we are just clicking randomly around the map 
+    // Console log coordinates for developers internally, but don't drop dots!
     const y = Math.round(e.latlng.lat);
     const x = Math.round(e.latlng.lng);
     console.log(`Clicked Coordinates: [${y}, ${x}]`);
-
-    // Drop a permanent tiny dot marker on click so you can see exactly where you clicked
-    const pointerMarker = L.circleMarker(e.latlng, {
-        radius: 4,
-        color: '#ff0000',
-        fillColor: '#ff0000',
-        fillOpacity: 1,
-        weight: 1
-    }).addTo(map);
-    pointerMarker.bindPopup(`<b>Dot Coords:</b><br><pre>[${y}, ${x}]</pre>`).openPopup();
-    
-    // Add it to our array so we can undo it later!
-    drawnItems.push(pointerMarker);
 });
 
 // ----------------------------------------------------
