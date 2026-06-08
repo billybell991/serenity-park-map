@@ -224,6 +224,19 @@ const b10AreaCoords = [
 L.polygon(b10AreaCoords, { className: 'organic-polygon', fillColor: '#b5c898', fillOpacity: 1 }).addTo(map).bindPopup("<b>Site B10</b>");
 L.marker([476, 1020], { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label">B10</div>', iconSize: [60,60], iconAnchor: [30,30] }), interactive: false }).addTo(map);
 
+// --- TEMP COOKIE CUTTERS (B11, B12, B13) ---
+const b11TempCoords = [[514, 1168], [514, 1228], [574, 1228], [574, 1168]];
+L.polygon(b11TempCoords, { className: 'organic-polygon', fillColor: '#b5c898', fillOpacity: 1 }).addTo(map).bindPopup("<b>Site B11</b>");
+L.marker([544, 1198], { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label" style="opacity:0.5;">B11</div>', iconSize: [60,60], iconAnchor: [30,30] }), interactive: false }).addTo(map);
+
+const b12TempCoords = [[584, 1108], [584, 1168], [644, 1168], [644, 1108]];
+L.polygon(b12TempCoords, { className: 'organic-polygon', fillColor: '#b5c898', fillOpacity: 1 }).addTo(map).bindPopup("<b>Site B12</b>");
+L.marker([614, 1138], { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label" style="opacity:0.5;">B12</div>', iconSize: [60,60], iconAnchor: [30,30] }), interactive: false }).addTo(map);
+
+const b13TempCoords = [[646, 1042], [646, 1102], [706, 1102], [706, 1042]];
+L.polygon(b13TempCoords, { className: 'organic-polygon', fillColor: '#b5c898', fillOpacity: 1 }).addTo(map).bindPopup("<b>Site B13</b>");
+L.marker([676, 1072], { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label" style="opacity:0.5;">B13</div>', iconSize: [60,60], iconAnchor: [30,30] }), interactive: false }).addTo(map);
+
 // --- JOHN MILLER PARK ---
 const johnMillerAreaCoords = [
     [259.2, 311.9], [239, 339.5], [224.5, 360.3], [207.2, 386.8], [190.9, 411.5],
