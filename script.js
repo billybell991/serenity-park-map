@@ -556,6 +556,17 @@ L.circle([1399.7, 1737.7], {
     interactive: false
 }).addTo(map);
 
+// --- NEW DOG AREA OVERLAY ---
+const tempDogArea = L.marker([1399.7, 1737.7], { 
+    icon: L.divIcon({ 
+        className: 'naked-site-label', 
+        html: '<div class="scalable-label" style="font-size: 40px; cursor: move; filter: drop-shadow(1px 1px 0px rgba(0,0,0,1)) drop-shadow(-1px -1px 0px rgba(0,0,0,1)) drop-shadow(1px -1px 0px rgba(0,0,0,1)) drop-shadow(-1px 1px 0px rgba(0,0,0,1));">🐕</div>', 
+        iconSize: [60,60], 
+        iconAnchor: [30,30] 
+    }),
+    draggable: true
+}).addTo(map).bindPopup("<b>Dog Area</b>");
+
 // --- DOG POOP DISPOSALS ---
 L.marker([1015, 1760], { 
     icon: L.divIcon({ 
