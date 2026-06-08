@@ -41,7 +41,7 @@ L.polygon(dogAreaPatchCoords, {
 L.marker([293, 95], { 
     icon: L.divIcon({ 
         className: 'naked-site-label', 
-        html: '<div class="scalable-label" style="font-size: 32px; filter: drop-shadow(0px 0px 2px rgba(255,255,255,1));">🐕</div>', 
+        html: '<div class="scalable-label" style="font-size: 32px; filter: drop-shadow(1px 1px 0px rgba(0,0,0,1)) drop-shadow(-1px -1px 0px rgba(0,0,0,1)) drop-shadow(1px -1px 0px rgba(0,0,0,1)) drop-shadow(-1px 1px 0px rgba(0,0,0,1));">🐕</div>', 
         iconSize: [60,60], 
         iconAnchor: [30,30] 
     }) 
@@ -326,7 +326,7 @@ L.marker(s29Center, { icon: s29Label, interactive: false }).addTo(map);
 L.marker([1015, 1760], { 
     icon: L.divIcon({ 
         className: 'naked-site-label', 
-        html: '<div class="scalable-label" style="font-size: 32px; filter: drop-shadow(0px 0px 2px rgba(255,255,255,1));">💩</div>', 
+        html: '<div class="scalable-label" style="font-size: 32px; filter: drop-shadow(1px 1px 0px rgba(0,0,0,1)) drop-shadow(-1px -1px 0px rgba(0,0,0,1)) drop-shadow(1px -1px 0px rgba(0,0,0,1)) drop-shadow(-1px 1px 0px rgba(0,0,0,1));">💩</div>', 
         iconSize: [60,60], 
         iconAnchor: [30,30] 
     }) 
@@ -335,7 +335,7 @@ L.marker([1015, 1760], {
 L.marker([287, 311], { 
     icon: L.divIcon({ 
         className: 'naked-site-label', 
-        html: '<div class="scalable-label" style="font-size: 32px; filter: drop-shadow(0px 0px 2px rgba(255,255,255,1));">💩</div>', 
+        html: '<div class="scalable-label" style="font-size: 32px; filter: drop-shadow(1px 1px 0px rgba(0,0,0,1)) drop-shadow(-1px -1px 0px rgba(0,0,0,1)) drop-shadow(1px -1px 0px rgba(0,0,0,1)) drop-shadow(-1px 1px 0px rgba(0,0,0,1));">💩</div>', 
         iconSize: [60,60], 
         iconAnchor: [30,30] 
     }) 
@@ -357,9 +357,13 @@ const legendCenter = [1438, 289]; // Center of the legend rectangle
 const legendHtml = `
 <div class="embedded-legend-text">
     <h2>Legend</h2>
-    <div class="embedded-legend-item"><strong>DW</strong> Dog Walking</div>
+    <div class="embedded-legend-item" style="display:flex; align-items:center; gap: 8px;">
+        <span style="font-size: 28px; filter: drop-shadow(1px 1px 0px #000) drop-shadow(-1px -1px 0px #000) drop-shadow(1px -1px 0px #000) drop-shadow(-1px 1px 0px #000);">🐕</span> Dog Area
+    </div>
     <div class="embedded-legend-item"><strong>CH</strong> Club House / Office</div>
-    <div class="embedded-legend-item" style="display:flex; align-items:center; gap: 8px;"><strong>💩</strong> Dog Poop Disposal</div>
+    <div class="embedded-legend-item" style="display:flex; align-items:center; gap: 8px;">
+        <span style="font-size: 28px; filter: drop-shadow(1px 1px 0px #000) drop-shadow(-1px -1px 0px #000) drop-shadow(1px -1px 0px #000) drop-shadow(-1px 1px 0px #000);">💩</span> Dog Poop Disposal
+    </div>
 </div>`;
 const legendIcon = L.divIcon({
     className: 'naked-site-label',
