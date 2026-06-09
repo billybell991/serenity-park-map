@@ -6,6 +6,7 @@ const map = L.map('map', {
     zoomSnap: 0.25, // Enables smooth fractional zooming
     zoomDelta: 0.5
 });
+window._leafletMap = map;
 
 // 2. Define the dimensions of your original image (Width x Height)
 const imageWidth = 2400;
@@ -869,6 +870,20 @@ const p36AreaCoords = [
 ];
 L.polygon(p36AreaCoords, { className: 'organic-polygon', fillColor: '#b5c898', fillOpacity: 1 }).addTo(map).bindPopup("<b>Site P36</b>");
 L.marker([549, 1747.5], { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label" style="cursor: move;">P36</div>', iconSize: [60,60], iconAnchor: [30,30] }), draggable: true }).addTo(map);
+
+// --- SITE P37 ---
+const p37AreaCoords = [
+    [386.4, 1503.9], [450.7, 1533.4], [443.2, 1552.7], [437.3, 1572.5], [428, 1616.2], [375.9, 1593.5]
+];
+L.polygon(p37AreaCoords, { className: 'organic-polygon', fillColor: '#b5c898', fillOpacity: 1 }).addTo(map).bindPopup("<b>Site P37</b>");
+L.marker([413, 1560], { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label" style="cursor: move;">P37</div>', iconSize: [60,60], iconAnchor: [30,30] }), draggable: true }).addTo(map);
+
+// --- SITE P38 ---
+const p38AreaCoords = [
+    [375.9, 1593.5], [428, 1616.2], [407.8, 1724.7], [360.7, 1708.3]
+];
+L.polygon(p38AreaCoords, { className: 'organic-polygon', fillColor: '#b5c898', fillOpacity: 1 }).addTo(map).bindPopup("<b>Site P38</b>");
+L.marker([394, 1659], { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label" style="cursor: move;">P38</div>', iconSize: [60,60], iconAnchor: [30,30] }), draggable: true }).addTo(map);
 
 // --- TEMPORARY PARKING SPOT ---
 const blankAreaCoords = [
