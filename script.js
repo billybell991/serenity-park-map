@@ -885,6 +885,17 @@ const p38AreaCoords = [
 L.polygon(p38AreaCoords, { className: 'organic-polygon', fillColor: '#b5c898', fillOpacity: 1 }).addTo(map).bindPopup("<b>Site P38</b>");
 L.marker([394, 1659], { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label" style="cursor: move;">P38</div>', iconSize: [60,60], iconAnchor: [30,30] }), draggable: true }).addTo(map);
 
+// --- PARKING (near P37/P38 area) ---
+L.marker([462, 1752], {
+    icon: L.divIcon({
+        className: 'naked-site-label',
+        html: '<div class="scalable-label" style="font-size: 28px; cursor: move; filter: drop-shadow(1px 1px 0px rgba(0,0,0,1)) drop-shadow(-1px -1px 0px rgba(0,0,0,1)) drop-shadow(1px -1px 0px rgba(0,0,0,1)) drop-shadow(-1px 1px 0px rgba(0,0,0,1));">🅿️</div>',
+        iconSize: [60,60],
+        iconAnchor: [30,30]
+    }),
+    draggable: true
+}).addTo(map);
+
 // --- TEMPORARY PARKING SPOT ---
 const blankAreaCoords = [
     [979.5, 1381], [991.5, 1411], [1000.5, 1422], [1010.5, 1430], [969, 1504], [933.5, 1476.5], [902.5, 1444.5]
