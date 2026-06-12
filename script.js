@@ -80,7 +80,101 @@ const centerFieldMarker = L.marker([776.4, 1682.9], { icon: L.divIcon({ classNam
 
 const lowerFieldMarker = L.marker([500, 2179], { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label" style="white-space: nowrap; font-weight: bold; text-shadow: 1px 1px 0px #fff, -1px -1px 0px #fff, 1px -1px 0px #fff, -1px 1px 0px #fff;">LOWER FIELD</div>', iconSize: [200, 40], iconAnchor: [100, 20] }), interactive: false }).addTo(map);
 
-const newParkingEmojiMarker = L.marker([490, 2295], { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label" style="font-size: 28px; filter: drop-shadow(1px 1px 0px rgba(0,0,0,1));">🅿️</div>', iconSize: [40, 40], iconAnchor: [20, 20] }), interactive: false }).addTo(map);
+
+const parkingMiddleEmojiMarker = L.marker([1369, 696], {
+    icon: L.divIcon({
+        className: 'naked-site-label',
+        html: '<div class="scalable-label" style="font-size: 28px; filter: drop-shadow(1px 1px 0px rgba(0,0,0,1)) drop-shadow(-1px -1px 0px rgba(0,0,0,1)) drop-shadow(1px -1px 0px rgba(0,0,0,1)) drop-shadow(-1px 1px 0px rgba(0,0,0,1));">🅿️</div>',
+        iconSize: [40, 40],
+        iconAnchor: [20, 20]
+    }),
+    interactive: false
+}).addTo(map);
+
+const newParkingEmojiMarker = L.marker([490, 2295], { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label" style="font-size: 28px; filter: drop-shadow(1px 1px 0px rgba(0,0,0,1)) drop-shadow(-1px -1px 0px rgba(0,0,0,1)) drop-shadow(1px -1px 0px rgba(0,0,0,1)) drop-shadow(-1px 1px 0px rgba(0,0,0,1));">🅿️</div>', iconSize: [40, 40], iconAnchor: [20, 20] }), interactive: false }).addTo(map);
+
+
+// --- AMENITIES ---
+const firePitMarker = L.marker([1270, 1860], {
+    icon: L.divIcon({
+        className: 'naked-site-label',
+        html: '<div class="scalable-label" style="font-size: 40px; cursor: move; filter: drop-shadow(1px 1px 0px rgba(0,0,0,1)) drop-shadow(-1px -1px 0px rgba(0,0,0,1)) drop-shadow(1px -1px 0px rgba(0,0,0,1)) drop-shadow(-1px 1px 0px rgba(0,0,0,1));">🔥</div>',
+        iconSize: [50, 50],
+        iconAnchor: [25, 25]
+    }),
+    draggable: true
+}).addTo(map);
+
+const beachAreaMarker = L.marker([1182, 2086], {
+    icon: L.divIcon({
+        className: 'naked-site-label',
+        html: '<div class="scalable-label" style="font-size: 40px; cursor: move; filter: drop-shadow(1px 1px 0px rgba(0,0,0,1)) drop-shadow(-1px -1px 0px rgba(0,0,0,1)) drop-shadow(1px -1px 0px rgba(0,0,0,1)) drop-shadow(-1px 1px 0px rgba(0,0,0,1));">🏖️</div>',
+        iconSize: [50, 50],
+        iconAnchor: [25, 25]
+    }),
+    draggable: true
+}).addTo(map);
+
+const playgroundMarker = L.marker([1151, 1830], {
+    icon: L.divIcon({
+        className: 'naked-site-label',
+        html: '<div class="scalable-label" style="font-size: 40px; cursor: move; filter: drop-shadow(1px 1px 0px rgba(0,0,0,1)) drop-shadow(-1px -1px 0px rgba(0,0,0,1)) drop-shadow(1px -1px 0px rgba(0,0,0,1)) drop-shadow(-1px 1px 0px rgba(0,0,0,1));">🛝</div>',
+        iconSize: [50, 50],
+        iconAnchor: [25, 25]
+    }),
+    draggable: true
+}).addTo(map);
+
+const volleyballMarker = L.marker([1097, 2062], {
+    icon: L.divIcon({
+        className: 'naked-site-label',
+        html: '<div class="scalable-label" style="font-size: 40px; cursor: move; filter: drop-shadow(1px 1px 0px rgba(0,0,0,1)) drop-shadow(-1px -1px 0px rgba(0,0,0,1)) drop-shadow(1px -1px 0px rgba(0,0,0,1)) drop-shadow(-1px 1px 0px rgba(0,0,0,1));">🏐</div>',
+        iconSize: [50, 50],
+        iconAnchor: [25, 25]
+    }),
+    draggable: true
+}).addTo(map);
+
+
+const washroomsMarker = L.marker([719.8, 2050.6], {
+    icon: L.divIcon({
+        className: 'naked-site-label',
+        html: '<div class="scalable-label" style="font-size: 40px; filter: drop-shadow(1px 1px 0px rgba(0,0,0,1)) drop-shadow(-1px -1px 0px rgba(0,0,0,1)) drop-shadow(1px -1px 0px rgba(0,0,0,1)) drop-shadow(-1px 1px 0px rgba(0,0,0,1));">🚽</div>',
+        iconSize: [50, 50],
+        iconAnchor: [25, 25]
+    }),
+    interactive: false
+}).addTo(map);
+
+const showersMarker = L.marker([681.7, 2087.4], {
+    icon: L.divIcon({
+        className: 'naked-site-label',
+        html: '<div class="scalable-label" style="font-size: 40px; filter: drop-shadow(1px 1px 0px rgba(0,0,0,1)) drop-shadow(-1px -1px 0px rgba(0,0,0,1)) drop-shadow(1px -1px 0px rgba(0,0,0,1)) drop-shadow(-1px 1px 0px rgba(0,0,0,1));">🚿</div>',
+        iconSize: [50, 50],
+        iconAnchor: [25, 25]
+    }),
+    interactive: false
+}).addTo(map);
+
+const horseshoesMarker = L.marker([692, 2179], {
+    icon: L.divIcon({
+        className: 'naked-site-label',
+        html: '<div class="scalable-label" style="font-size: 40px; cursor: move; filter: drop-shadow(1px 1px 0px rgba(0,0,0,1)) drop-shadow(-1px -1px 0px rgba(0,0,0,1)) drop-shadow(1px -1px 0px rgba(0,0,0,1)) drop-shadow(-1px 1px 0px rgba(0,0,0,1));">🎯</div>',
+        iconSize: [50, 50],
+        iconAnchor: [25, 25]
+    }),
+    draggable: true
+}).addTo(map);
+
+const pavillionMarker = L.marker([215, 2032], {
+    icon: L.divIcon({
+        className: 'naked-site-label',
+        html: '<div class="scalable-label" style="font-size: 40px; cursor: move; filter: drop-shadow(1px 1px 0px rgba(0,0,0,1)) drop-shadow(-1px -1px 0px rgba(0,0,0,1)) drop-shadow(1px -1px 0px rgba(0,0,0,1)) drop-shadow(-1px 1px 0px rgba(0,0,0,1));">💃🕺</div>',
+        iconSize: [50, 50],
+        iconAnchor: [25, 25]
+    }),
+    draggable: true
+}).addTo(map);
 
 map.fitBounds(bounds);
 map.zoomOut(0.5);
@@ -1188,7 +1282,7 @@ L.marker([1076, 1491], {
 
 // --- IN-MAP LEGEND ---
 // The bounds you drew for the legend box
-const legendBounds = [[1126, 42], [1750, 536]];
+const legendBounds = [[750, 42], [1750, 560]];
 L.rectangle(legendBounds, {
     className: 'organic-polygon', // Using the organic blur effect!
     color: '#4a3b32',
@@ -1198,7 +1292,7 @@ L.rectangle(legendBounds, {
 }).addTo(map);
 
 // Adding the scaled HTML text inside the bounds
-const legendCenter = [1438, 289]; // Center of the legend rectangle
+const legendCenter = [1250, 301]; // Center of the legend rectangle
 const legendHtml = `
 <div class="embedded-legend-text">
     <h2>Legend</h2>
@@ -1218,12 +1312,36 @@ const legendHtml = `
     <div class="embedded-legend-item" style="display:flex; align-items:center; gap: 8px;">
         <span style="font-size: 28px; filter: drop-shadow(1px 1px 0px #000) drop-shadow(-1px -1px 0px #000) drop-shadow(1px -1px 0px #000) drop-shadow(-1px 1px 0px #000);">🅿️</span> Parking
     </div>
+    <div class="embedded-legend-item" style="display:flex; align-items:center; gap: 8px;">
+        <span style="font-size: 28px; filter: drop-shadow(1px 1px 0px #000) drop-shadow(-1px -1px 0px #000) drop-shadow(1px -1px 0px #000) drop-shadow(-1px 1px 0px #000);">🔥</span> Communal Fire Pit
+    </div>
+    <div class="embedded-legend-item" style="display:flex; align-items:center; gap: 8px;">
+        <span style="font-size: 28px; filter: drop-shadow(1px 1px 0px #000) drop-shadow(-1px -1px 0px #000) drop-shadow(1px -1px 0px #000) drop-shadow(-1px 1px 0px #000);">🏖️</span> Beach Area
+    </div>
+    <div class="embedded-legend-item" style="display:flex; align-items:center; gap: 8px;">
+        <span style="font-size: 28px; filter: drop-shadow(1px 1px 0px #000) drop-shadow(-1px -1px 0px #000) drop-shadow(1px -1px 0px #000) drop-shadow(-1px 1px 0px #000);">🛝</span> Playground
+    </div>
+    <div class="embedded-legend-item" style="display:flex; align-items:center; gap: 8px;">
+        <span style="font-size: 28px; filter: drop-shadow(1px 1px 0px #000) drop-shadow(-1px -1px 0px #000) drop-shadow(1px -1px 0px #000) drop-shadow(-1px 1px 0px #000);">🏐</span> Volleyball
+    </div>
+    <div class="embedded-legend-item" style="display:flex; align-items:center; gap: 8px;">
+        <span style="font-size: 28px; filter: drop-shadow(1px 1px 0px #000) drop-shadow(-1px -1px 0px #000) drop-shadow(1px -1px 0px #000) drop-shadow(-1px 1px 0px #000);">🚽</span> Washrooms
+    </div>
+    <div class="embedded-legend-item" style="display:flex; align-items:center; gap: 8px;">
+        <span style="font-size: 28px; filter: drop-shadow(1px 1px 0px #000) drop-shadow(-1px -1px 0px #000) drop-shadow(1px -1px 0px #000) drop-shadow(-1px 1px 0px #000);">🚿</span> Showers
+    </div>
+    <div class="embedded-legend-item" style="display:flex; align-items:center; gap: 8px;">
+        <span style="font-size: 28px; filter: drop-shadow(1px 1px 0px #000) drop-shadow(-1px -1px 0px #000) drop-shadow(1px -1px 0px #000) drop-shadow(-1px 1px 0px #000);">🎯</span> Horseshoes
+    </div>
+    <div class="embedded-legend-item" style="display:flex; align-items:center; gap: 8px;">
+        <span style="font-size: 28px; filter: drop-shadow(1px 1px 0px #000) drop-shadow(-1px -1px 0px #000) drop-shadow(1px -1px 0px #000) drop-shadow(-1px 1px 0px #000);">💃🕺</span> Pavillion
+    </div>
 </div>`;
 const legendIcon = L.divIcon({
     className: 'naked-site-label',
     html: legendHtml,
-    iconSize: [400, 500],
-    iconAnchor: [200, 250] // Anchors directly to the center coordinates
+    iconSize: [400, 900],
+    iconAnchor: [200, 450] // Anchors directly to the center coordinates
 });
 L.marker(legendCenter, { icon: legendIcon, interactive: false }).addTo(map);
 
