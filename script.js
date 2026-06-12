@@ -1,3 +1,5 @@
+const ADMIN_MODE = false;
+
 // 1. Set up a simple coordinate system (non-geographical, just for images)
 const map = L.map('map', {
     crs: L.CRS.Simple,
@@ -98,41 +100,41 @@ const newParkingEmojiMarker = L.marker([490, 2295], { icon: L.divIcon({ classNam
 const firePitMarker = L.marker([1270, 1860], {
     icon: L.divIcon({
         className: 'naked-site-label',
-        html: '<div class="scalable-label" style="font-size: 40px; cursor: move; filter: drop-shadow(1px 1px 0px rgba(0,0,0,1)) drop-shadow(-1px -1px 0px rgba(0,0,0,1)) drop-shadow(1px -1px 0px rgba(0,0,0,1)) drop-shadow(-1px 1px 0px rgba(0,0,0,1));">🔥</div>',
+        html: '<div class="scalable-label" style="font-size: 40px;  filter: drop-shadow(1px 1px 0px rgba(0,0,0,1)) drop-shadow(-1px -1px 0px rgba(0,0,0,1)) drop-shadow(1px -1px 0px rgba(0,0,0,1)) drop-shadow(-1px 1px 0px rgba(0,0,0,1));">🔥</div>',
         iconSize: [50, 50],
         iconAnchor: [25, 25]
     }),
-    draggable: true
+    interactive: false
 }).addTo(map);
 
 const beachAreaMarker = L.marker([1182, 2086], {
     icon: L.divIcon({
         className: 'naked-site-label',
-        html: '<div class="scalable-label" style="font-size: 40px; cursor: move; filter: drop-shadow(1px 1px 0px rgba(0,0,0,1)) drop-shadow(-1px -1px 0px rgba(0,0,0,1)) drop-shadow(1px -1px 0px rgba(0,0,0,1)) drop-shadow(-1px 1px 0px rgba(0,0,0,1));">🏖️</div>',
+        html: '<div class="scalable-label" style="font-size: 40px;  filter: drop-shadow(1px 1px 0px rgba(0,0,0,1)) drop-shadow(-1px -1px 0px rgba(0,0,0,1)) drop-shadow(1px -1px 0px rgba(0,0,0,1)) drop-shadow(-1px 1px 0px rgba(0,0,0,1));">🏖️</div>',
         iconSize: [50, 50],
         iconAnchor: [25, 25]
     }),
-    draggable: true
+    interactive: false
 }).addTo(map);
 
 const playgroundMarker = L.marker([1151, 1830], {
     icon: L.divIcon({
         className: 'naked-site-label',
-        html: '<div class="scalable-label" style="font-size: 40px; cursor: move; filter: drop-shadow(1px 1px 0px rgba(0,0,0,1)) drop-shadow(-1px -1px 0px rgba(0,0,0,1)) drop-shadow(1px -1px 0px rgba(0,0,0,1)) drop-shadow(-1px 1px 0px rgba(0,0,0,1));">🛝</div>',
+        html: '<div class="scalable-label" style="font-size: 40px;  filter: drop-shadow(1px 1px 0px rgba(0,0,0,1)) drop-shadow(-1px -1px 0px rgba(0,0,0,1)) drop-shadow(1px -1px 0px rgba(0,0,0,1)) drop-shadow(-1px 1px 0px rgba(0,0,0,1));">🛝</div>',
         iconSize: [50, 50],
         iconAnchor: [25, 25]
     }),
-    draggable: true
+    interactive: false
 }).addTo(map);
 
 const volleyballMarker = L.marker([1097, 2062], {
     icon: L.divIcon({
         className: 'naked-site-label',
-        html: '<div class="scalable-label" style="font-size: 40px; cursor: move; filter: drop-shadow(1px 1px 0px rgba(0,0,0,1)) drop-shadow(-1px -1px 0px rgba(0,0,0,1)) drop-shadow(1px -1px 0px rgba(0,0,0,1)) drop-shadow(-1px 1px 0px rgba(0,0,0,1));">🏐</div>',
+        html: '<div class="scalable-label" style="font-size: 40px;  filter: drop-shadow(1px 1px 0px rgba(0,0,0,1)) drop-shadow(-1px -1px 0px rgba(0,0,0,1)) drop-shadow(1px -1px 0px rgba(0,0,0,1)) drop-shadow(-1px 1px 0px rgba(0,0,0,1));">🏐</div>',
         iconSize: [50, 50],
         iconAnchor: [25, 25]
     }),
-    draggable: true
+    interactive: false
 }).addTo(map);
 
 
@@ -159,21 +161,21 @@ const showersMarker = L.marker([681.7, 2087.4], {
 const horseshoesMarker = L.marker([692, 2179], {
     icon: L.divIcon({
         className: 'naked-site-label',
-        html: '<div class="scalable-label" style="font-size: 40px; cursor: move; filter: drop-shadow(1px 1px 0px rgba(0,0,0,1)) drop-shadow(-1px -1px 0px rgba(0,0,0,1)) drop-shadow(1px -1px 0px rgba(0,0,0,1)) drop-shadow(-1px 1px 0px rgba(0,0,0,1));">🎯</div>',
+        html: '<div class="scalable-label" style="font-size: 40px;  filter: drop-shadow(1px 1px 0px rgba(0,0,0,1)) drop-shadow(-1px -1px 0px rgba(0,0,0,1)) drop-shadow(1px -1px 0px rgba(0,0,0,1)) drop-shadow(-1px 1px 0px rgba(0,0,0,1));">🎯</div>',
         iconSize: [50, 50],
         iconAnchor: [25, 25]
     }),
-    draggable: true
+    interactive: false
 }).addTo(map);
 
 const pavillionMarker = L.marker([215, 2032], {
     icon: L.divIcon({
         className: 'naked-site-label',
-        html: '<div class="scalable-label" style="white-space: nowrap; font-size: 40px; cursor: move; filter: drop-shadow(1px 1px 0px rgba(0,0,0,1)) drop-shadow(-1px -1px 0px rgba(0,0,0,1)) drop-shadow(1px -1px 0px rgba(0,0,0,1)) drop-shadow(-1px 1px 0px rgba(0,0,0,1));">💃🕺</div>',
+        html: '<div class="scalable-label" style="white-space: nowrap; font-size: 40px;  filter: drop-shadow(1px 1px 0px rgba(0,0,0,1)) drop-shadow(-1px -1px 0px rgba(0,0,0,1)) drop-shadow(1px -1px 0px rgba(0,0,0,1)) drop-shadow(-1px 1px 0px rgba(0,0,0,1));">💃🕺</div>',
         iconSize: [100, 50],
         iconAnchor: [50, 25]
     }),
-    draggable: true
+    interactive: false
 }).addTo(map);
 
 map.fitBounds(bounds);
@@ -1443,13 +1445,15 @@ map.on('click', function(e) {
 // ADMIN DRAWING TOOLS (Geoman)
 // ----------------------------------------------------
 // Add the drawing toolbar to the map
-map.pm.addControls({
-    position: 'topleft',
-    drawCircleMarker: false,
-    drawText: false,
-    drawCircle: false,
-    // Leaves Polygon (shapes), Rectangle, Line, and Marker tools
-});
+if (ADMIN_MODE) {
+    map.pm.addControls({
+        position: 'topleft',
+        drawCircleMarker: false,
+        drawText: false,
+        drawCircle: false,
+        // Leaves Polygon (shapes), Rectangle, Line, and Marker tools
+    });
+}
 
 // Make the drawn shapes bright green so they stand out
 map.pm.setPathOptions({
