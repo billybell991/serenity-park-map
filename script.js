@@ -19,6 +19,37 @@ const bounds = [[0, 0], [imageHeight, imageWidth]];
 const imageOverlay = L.imageOverlay('park_map_naked.png', bounds).addTo(map);
 
 // --- MAP PATCHES (Covering up old printed data) ---
+
+const chPatchCoords = [
+    [78.5, 1902.1], [137.9, 1902.1], [137.9, 1972.9], [78.5, 1972.9]
+];
+L.polygon(chPatchCoords, { 
+    stroke: false, 
+    fillColor: '#d4c4a1', 
+    fillOpacity: 1,
+    className: 'map-patch'
+}).addTo(map);
+
+L.marker([108, 1915], { 
+    icon: L.divIcon({ 
+        className: 'naked-site-label', 
+        html: '<div class="scalable-label" style="font-size: 40px; filter: drop-shadow(1px 1px 0px rgba(0,0,0,1)) drop-shadow(-1px -1px 0px rgba(0,0,0,1)) drop-shadow(1px -1px 0px rgba(0,0,0,1)) drop-shadow(-1px 1px 0px rgba(0,0,0,1)); cursor: move;">🏢</div>', 
+        iconSize: [50,50], 
+        iconAnchor: [25,25] 
+    }),
+    draggable: true
+}).addTo(map).bindPopup("<b>Office</b>");
+
+L.marker([108, 1955], { 
+    icon: L.divIcon({ 
+        className: 'naked-site-label', 
+        html: '<div class="scalable-label" style="font-size: 40px; filter: drop-shadow(1px 1px 0px rgba(0,0,0,1)) drop-shadow(-1px -1px 0px rgba(0,0,0,1)) drop-shadow(1px -1px 0px rgba(0,0,0,1)) drop-shadow(-1px 1px 0px rgba(0,0,0,1)); cursor: move;">🏠</div>', 
+        iconSize: [50,50], 
+        iconAnchor: [25,25] 
+    }),
+    draggable: true
+}).addTo(map).bindPopup("<b>Club House</b>");
+
 const dropDWPatchCoords = [
     [46.7, 110.1], [108.9, 110.1], [108.9, 200.6], [46.7, 200.6]
 ];
@@ -561,6 +592,79 @@ const p26AreaCoords = [
 L.polygon(p26AreaCoords, { className: 'organic-polygon', fillColor: '#b5c898', fillOpacity: 1 }).addTo(map).bindPopup("<b>Site P26</b>");
 L.marker([856.3, 1530.8], { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label" style="cursor: move;">P26</div>', iconSize: [60,60], iconAnchor: [30,30] }), draggable: true }).addTo(map);
 
+
+// --- SITE S1 ---
+const s1Center = [241.4, 1308.7];
+const s1AreaCoords = [[259.2,1747.5],[312.8,1783.2],[305,1799.9],[292,1808.8],[266.4,1818.9],[246.2,1818.9],[236.7,1812.4],[218.2,1786.2],[201,1752.9]];
+const s1Poly = L.polygon(s1AreaCoords, { className: 'organic-polygon', fillColor: '#b5c898', fillOpacity: 1 }).addTo(map).bindPopup("<b>Site S1</b>");
+const s1Marker = L.marker(s1Center, { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label">S1</div>', iconSize: [60,60], iconAnchor: [30,30] }), interactive: false }).addTo(map);
+
+// --- SITE S2 ---
+const s2Center = [273.5, 1394.3];
+const s2AreaCoords = [[179,1666.7],[220,1663.1],[241.4,1661.9],[255.1,1665.5],[255.1,1665.5],[255.1,1665.5],[261,1667.3],[259.2,1747.5],[201,1752.9],[194.1,1731.5],[187.3,1710.1],[181.4,1689.9]];
+const s2Poly = L.polygon(s2AreaCoords, { className: 'organic-polygon', fillColor: '#b5c898', fillOpacity: 1 }).addTo(map).bindPopup("<b>Site S2</b>");
+const s2Marker = L.marker(s2Center, { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label">S2</div>', iconSize: [60,60], iconAnchor: [30,30] }), interactive: false }).addTo(map);
+
+// --- SITE S3 ---
+const s3Center = [296.1, 1495.4];
+const s3AreaCoords = [[163.5,1574.5],[241.4,1568.6],[255.1,1665.5],[179,1666.7]];
+const s3Poly = L.polygon(s3AreaCoords, { className: 'organic-polygon', fillColor: '#b5c898', fillOpacity: 1 }).addTo(map).bindPopup("<b>Site S3</b>");
+const s3Marker = L.marker(s3Center, { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label">S3</div>', iconSize: [60,60], iconAnchor: [30,30] }), interactive: false }).addTo(map);
+
+// --- SITE S4 ---
+const s4Center = [288.4, 1615.5];
+const s4AreaCoords = [[158.2,1487.7],[228.3,1484.1],[241.4,1568.6],[163.5,1574.5]];
+const s4Poly = L.polygon(s4AreaCoords, { className: 'organic-polygon', fillColor: '#b5c898', fillOpacity: 1 }).addTo(map).bindPopup("<b>Site S4</b>");
+const s4Marker = L.marker(s4Center, { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label">S4</div>', iconSize: [60,60], iconAnchor: [30,30] }), interactive: false }).addTo(map);
+
+// --- SITE S5 ---
+const s5Center = [289, 1714.8];
+const s5AreaCoords = [[143.3,1383.6],[209.3,1414],[228.3,1484.1],[158.2,1487.7]];
+const s5Poly = L.polygon(s5AreaCoords, { className: 'organic-polygon', fillColor: '#b5c898', fillOpacity: 1 }).addTo(map).bindPopup("<b>Site S5</b>");
+const s5Marker = L.marker(s5Center, { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label">S5</div>', iconSize: [60,60], iconAnchor: [30,30] }), interactive: false }).addTo(map);
+
+// --- SITE S6 ---
+const s6Center = [258.1, 1783.2];
+const s6AreaCoords = [[205.1,1278.4],[206.9,1236.2],[233.1,1254.6],[255.7,1277.2],[278.3,1304.6],[288.4,1318.8],[294.3,1331.3],[217.6,1355.7],[211.1,1338.5],[208.7,1319.4],[205.7,1301]];
+const s6Poly = L.polygon(s6AreaCoords, { className: 'organic-polygon', fillColor: '#b5c898', fillOpacity: 1 }).addTo(map).bindPopup("<b>Site S6</b>");
+const s6Marker = L.marker(s6Center, { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label">S6</div>', iconSize: [60,60], iconAnchor: [30,30] }), interactive: false }).addTo(map);
+
+// --- SITE S7 ---
+const s7Center = [223, 1704.1];
+const s7AreaCoords = [[217.6,1355.7],[294.3,1331.3],[306.2,1355.1],[314.5,1378.9],[322.3,1405],[327.6,1429.4],[249.7,1456.2]];
+const s7Poly = L.polygon(s7AreaCoords, { className: 'organic-polygon', fillColor: '#b5c898', fillOpacity: 1 }).addTo(map).bindPopup("<b>Site S7</b>");
+const s7Marker = L.marker(s7Center, { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label">S7</div>', iconSize: [60,60], iconAnchor: [30,30] }), interactive: false }).addTo(map);
+
+// --- SITE S8 ---
+const s8Center = [209.4, 1619.6];
+const s8AreaCoords = [[249.7,1456.2],[327.6,1429.4],[331.8,1461.5],[332.4,1493.6],[330,1524],[325.8,1551.3],[262.2,1566.2],[264.6,1539.4],[263.4,1511.5],[258.1,1483.5]];
+const s8Poly = L.polygon(s8AreaCoords, { className: 'organic-polygon', fillColor: '#b5c898', fillOpacity: 1 }).addTo(map).bindPopup("<b>Site S8</b>");
+const s8Marker = L.marker(s8Center, { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label">S8</div>', iconSize: [60,60], iconAnchor: [30,30] }), interactive: false }).addTo(map);
+
+// --- SITE S9 ---
+const s9Center = [196.8, 1534.1];
+const s9AreaCoords = [[262.2,1566.2],[325.8,1551.3],[321.7,1607.2],[320.5,1664.9],[286.6,1666.7],[269.4,1667.9],[261,1667.3],[255.1,1665.5],[255.1,1665.5],[249.7,1642.3],[251.5,1619.7]];
+const s9Poly = L.polygon(s9AreaCoords, { className: 'organic-polygon', fillColor: '#b5c898', fillOpacity: 1 }).addTo(map).bindPopup("<b>Site S9</b>");
+const s9Marker = L.marker(s9Center, { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label">S9</div>', iconSize: [60,60], iconAnchor: [30,30] }), interactive: false }).addTo(map);
+
+// --- SITE S10 ---
+const s10Center = [183.1, 1449];
+const s10AreaCoords = [[261,1667.3],[320.5,1664.9],[321.1,1725.5],[321.1,1756.5],[312.8,1783.2],[259.2,1747.5]];
+const s10Poly = L.polygon(s10AreaCoords, { className: 'organic-polygon', fillColor: '#b5c898', fillOpacity: 1 }).addTo(map).bindPopup("<b>Site S10</b>");
+const s10Marker = L.marker(s10Center, { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label">S10</div>', iconSize: [60,60], iconAnchor: [30,30] }), interactive: false }).addTo(map);
+
+// --- SITE P56 ---
+const p56Center = [63.1, 1312.3];
+const p56AreaCoords = [[30.9,1202.9],[42.8,1207],[54.1,1216],[66,1234.4],[73.7,1252.2],[86.8,1289.7],[100.5,1334.3],[110,1378.9],[44.6,1384.8]];
+const p56Poly = L.polygon(p56AreaCoords, { className: 'organic-polygon', fillColor: '#b5c898', fillOpacity: 1 }).addTo(map).bindPopup("<b>Site P56</b>");
+const p56Marker = L.marker(p56Center, { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label">P56</div>', iconSize: [60,60], iconAnchor: [30,30] }), interactive: false }).addTo(map);
+
+// --- SITE P57 ---
+const p57Center = [83.8, 1431.8];
+const p57AreaCoords = [[44.6,1384.8],[110,1378.9],[114.2,1419.9],[118.9,1458],[124.3,1536.5],[53.5,1492.5]];
+const p57Poly = L.polygon(p57AreaCoords, { className: 'organic-polygon', fillColor: '#b5c898', fillOpacity: 1 }).addTo(map).bindPopup("<b>Site P57</b>");
+const p57Marker = L.marker(p57Center, { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label">P57</div>', iconSize: [60,60], iconAnchor: [30,30] }), interactive: false }).addTo(map);
+
 // --- SITE S19 ---
 const s19AreaCoords = [
     [1131.5, 1142.5], [1088, 1237], [1147, 1262], [1238, 1199.5], [1212.5, 1182], [1186, 1166.5], [1159, 1153.5]
@@ -955,7 +1059,7 @@ const legendHtml = `
     <div class="embedded-legend-item" style="display:flex; align-items:center; gap: 8px;">
         <span style="font-size: 28px; filter: drop-shadow(1px 1px 0px #000) drop-shadow(-1px -1px 0px #000) drop-shadow(1px -1px 0px #000) drop-shadow(-1px 1px 0px #000);">🐕</span> Dog Area
     </div>
-    <div class="embedded-legend-item"><strong>CH</strong> Club House / Office</div>
+    <div class="embedded-legend-item" style="display:flex; align-items:center; gap: 8px;"><span style="font-size: 28px; filter: drop-shadow(1px 1px 0px #000) drop-shadow(-1px -1px 0px #000) drop-shadow(1px -1px 0px #000) drop-shadow(-1px 1px 0px #000);">🏢 🏠</span> Club House / Office</div>
     <div class="embedded-legend-item" style="display:flex; align-items:center; gap: 8px;">
         <span style="font-size: 28px; filter: drop-shadow(1px 1px 0px #000) drop-shadow(-1px -1px 0px #000) drop-shadow(1px -1px 0px #000) drop-shadow(-1px 1px 0px #000);">💩</span> Dog Poop Disposal
     </div>
