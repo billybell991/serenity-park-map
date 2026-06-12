@@ -169,9 +169,9 @@ const horseshoesMarker = L.marker([692, 2179], {
 const pavillionMarker = L.marker([215, 2032], {
     icon: L.divIcon({
         className: 'naked-site-label',
-        html: '<div class="scalable-label" style="font-size: 40px; cursor: move; filter: drop-shadow(1px 1px 0px rgba(0,0,0,1)) drop-shadow(-1px -1px 0px rgba(0,0,0,1)) drop-shadow(1px -1px 0px rgba(0,0,0,1)) drop-shadow(-1px 1px 0px rgba(0,0,0,1));">💃🕺</div>',
-        iconSize: [50, 50],
-        iconAnchor: [25, 25]
+        html: '<div class="scalable-label" style="white-space: nowrap; font-size: 40px; cursor: move; filter: drop-shadow(1px 1px 0px rgba(0,0,0,1)) drop-shadow(-1px -1px 0px rgba(0,0,0,1)) drop-shadow(1px -1px 0px rgba(0,0,0,1)) drop-shadow(-1px 1px 0px rgba(0,0,0,1));">💃🕺</div>',
+        iconSize: [100, 50],
+        iconAnchor: [50, 25]
     }),
     draggable: true
 }).addTo(map);
