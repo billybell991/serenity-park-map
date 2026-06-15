@@ -168,6 +168,15 @@ const horseshoesMarker = L.marker([692, 2179], {
         iconAnchor: [25, 25]
     })}).addTo(map).bindPopup("<b>Horseshoes</b>");
 
+const frisbeeGolfMarker = L.marker([345, 198], {
+    icon: L.divIcon({
+        className: 'naked-site-label',
+        html: '<div class="scalable-label" style="font-size: 40px; filter: drop-shadow(1px 1px 0px rgba(0,0,0,1)) drop-shadow(-1px -1px 0px rgba(0,0,0,1)) drop-shadow(1px -1px 0px rgba(0,0,0,1)) drop-shadow(-1px 1px 0px rgba(0,0,0,1));">💿</div>',
+        iconSize: [50, 50],
+        iconAnchor: [25, 25]
+    })
+}).addTo(map).bindPopup("<b>Frisbee Golf</b>");
+
 const pavillionMarker = L.marker([215, 2032], {
     icon: L.divIcon({
         className: 'naked-site-label',
@@ -748,16 +757,10 @@ const s5Poly = L.polygon(s5AreaCoords, { className: 'organic-polygon', fillColor
 const s5Marker = L.marker(s5Center, { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label">S5</div>', iconSize: [60,60], iconAnchor: [30,30] }), interactive: false}).addTo(map);
 
 // --- SITE S6 ---
-const s6Center = [241, 1310];
-const s6AreaCoords = [[205.1,1278.4],[206.9,1236.2],[233.1,1254.6],[255.7,1277.2],[278.3,1304.6],[288.4,1318.8],[294.3,1331.3],[217.6,1355.7],[211.1,1338.5],[208.7,1319.4],[205.7,1301]];
+const s6Center = [259, 1355];
+const s6AreaCoords = [[205.1,1278.4],[206.9,1236.2],[233.1,1254.6],[255.7,1277.2],[278.3,1304.6],[288.4,1318.8],[301,1344.6],[312,1371.5],[327.6,1429.4],[249.7,1456.2],[217.6,1355.7],[211.1,1338.5],[208.7,1319.4],[205.7,1301]];
 const s6Poly = L.polygon(s6AreaCoords, { className: 'organic-polygon', fillColor: '#b5c898', fillOpacity: 1 }).addTo(map).bindPopup("<b>S6 - Paula & Peter</b>");
 const s6Marker = L.marker(s6Center, { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label">S6</div>', iconSize: [60,60], iconAnchor: [30,30] }), interactive: false}).addTo(map);
-
-// --- SITE S7 ---
-const s7Center = [274, 1394];
-const s7AreaCoords = [[217.6,1355.7],[294.3,1331.3],[306.2,1355.1],[314.5,1378.9],[322.3,1405],[327.6,1429.4],[249.7,1456.2]];
-const s7Poly = L.polygon(s7AreaCoords, { className: 'organic-polygon', fillColor: '#b5c898', fillOpacity: 1 }).addTo(map).bindPopup("<b>Site S7</b>");
-const s7Marker = L.marker(s7Center, { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label">S7</div>', iconSize: [60,60], iconAnchor: [30,30] }), interactive: false}).addTo(map);
 
 // --- SITE S8 ---
 const s8Center = [295, 1502];
@@ -1272,7 +1275,7 @@ L.marker([1076, 1491], {
 
 // --- IN-MAP LEGEND ---
 // The bounds you drew for the legend box
-const legendBounds = [[750, 42], [1750, 560]];
+const legendBounds = [[750, 42], [1820, 560]];
 L.rectangle(legendBounds, {
     className: 'organic-polygon', // Using the organic blur effect!
     color: '#4a3b32',
@@ -1282,31 +1285,37 @@ L.rectangle(legendBounds, {
 }).addTo(map);
 
 // Adding the scaled HTML text inside the bounds
-const legendCenter = [1250, 301]; // Center of the legend rectangle
+const legendCenter = [1285, 301]; // Center of the legend rectangle
 const legendHtml = `
 <div class="embedded-legend-text">
     <h2>Legend</h2>
     <div class="embedded-legend-item" style="display:flex; align-items:center; gap: 8px;">
-        <span style="font-size: 28px; filter: drop-shadow(1px 1px 0px #000) drop-shadow(-1px -1px 0px #000) drop-shadow(1px -1px 0px #000) drop-shadow(-1px 1px 0px #000);">🐕</span> Dog Area
+        <span style="font-size: 28px; filter: drop-shadow(1px 1px 0px #000) drop-shadow(-1px -1px 0px #000) drop-shadow(1px -1px 0px #000) drop-shadow(-1px 1px 0px #000);">🏖️</span> Beach Area
     </div>
     <div class="embedded-legend-item" style="display:flex; align-items:center; gap: 8px;"><span style="font-size: 28px; filter: drop-shadow(1px 1px 0px #000) drop-shadow(-1px -1px 0px #000) drop-shadow(1px -1px 0px #000) drop-shadow(-1px 1px 0px #000);">🏢 🏠</span> Club House / Office</div>
+    <div class="embedded-legend-item" style="display:flex; align-items:center; gap: 8px;">
+        <span style="font-size: 28px; filter: drop-shadow(1px 1px 0px #000) drop-shadow(-1px -1px 0px #000) drop-shadow(1px -1px 0px #000) drop-shadow(-1px 1px 0px #000);">🔥</span> Communal Fire Pit
+    </div>
+    <div class="embedded-legend-item" style="display:flex; align-items:center; gap: 8px;">
+        <span style="font-size: 28px; filter: drop-shadow(1px 1px 0px #000) drop-shadow(-1px -1px 0px #000) drop-shadow(1px -1px 0px #000) drop-shadow(-1px 1px 0px #000);">🐕</span> Dog Area
+    </div>
     <div class="embedded-legend-item" style="display:flex; align-items:center; gap: 8px;">
         <span style="font-size: 28px; filter: drop-shadow(1px 1px 0px #000) drop-shadow(-1px -1px 0px #000) drop-shadow(1px -1px 0px #000) drop-shadow(-1px 1px 0px #000);">💩</span> Dog Poop Disposal
     </div>
     <div class="embedded-legend-item" style="display:flex; align-items:center; gap: 8px;">
-        <span style="font-size: 28px; filter: drop-shadow(1px 1px 0px #000) drop-shadow(-1px -1px 0px #000) drop-shadow(1px -1px 0px #000) drop-shadow(-1px 1px 0px #000);">🗑️</span> Garbage
+        <span style="font-size: 28px; filter: drop-shadow(1px 1px 0px #000) drop-shadow(-1px -1px 0px #000) drop-shadow(1px -1px 0px #000) drop-shadow(-1px 1px 0px #000);">💿</span> Frisbee Golf
     </div>
     <div class="embedded-legend-item" style="display:flex; align-items:center; gap: 8px;">
-        <span style="font-size: 28px; filter: drop-shadow(1px 1px 0px #000) drop-shadow(-1px -1px 0px #000) drop-shadow(1px -1px 0px #000) drop-shadow(-1px 1px 0px #000);">♻️</span> Recycling
+        <span style="font-size: 28px; filter: drop-shadow(1px 1px 0px #000) drop-shadow(-1px -1px 0px #000) drop-shadow(1px -1px 0px #000) drop-shadow(-1px 1px 0px #000);">🗑️</span> Garbage /&nbsp;<span style="font-size: 28px; filter: drop-shadow(1px 1px 0px #000) drop-shadow(-1px -1px 0px #000) drop-shadow(1px -1px 0px #000) drop-shadow(-1px 1px 0px #000);">♻️</span> Recycling
+    </div>
+    <div class="embedded-legend-item" style="display:flex; align-items:center; gap: 8px;">
+        <span style="font-size: 28px; filter: drop-shadow(1px 1px 0px #000) drop-shadow(-1px -1px 0px #000) drop-shadow(1px -1px 0px #000) drop-shadow(-1px 1px 0px #000);">🎯</span> Horseshoes
     </div>
     <div class="embedded-legend-item" style="display:flex; align-items:center; gap: 8px;">
         <span style="font-size: 28px; filter: drop-shadow(1px 1px 0px #000) drop-shadow(-1px -1px 0px #000) drop-shadow(1px -1px 0px #000) drop-shadow(-1px 1px 0px #000);">🅿️</span> Parking
     </div>
     <div class="embedded-legend-item" style="display:flex; align-items:center; gap: 8px;">
-        <span style="font-size: 28px; filter: drop-shadow(1px 1px 0px #000) drop-shadow(-1px -1px 0px #000) drop-shadow(1px -1px 0px #000) drop-shadow(-1px 1px 0px #000);">🔥</span> Communal Fire Pit
-    </div>
-    <div class="embedded-legend-item" style="display:flex; align-items:center; gap: 8px;">
-        <span style="font-size: 28px; filter: drop-shadow(1px 1px 0px #000) drop-shadow(-1px -1px 0px #000) drop-shadow(1px -1px 0px #000) drop-shadow(-1px 1px 0px #000);">🏖️</span> Beach Area
+        <span style="font-size: 28px; filter: drop-shadow(1px 1px 0px #000) drop-shadow(-1px -1px 0px #000) drop-shadow(1px -1px 0px #000) drop-shadow(-1px 1px 0px #000);">💃🕺</span> Pavillion
     </div>
     <div class="embedded-legend-item" style="display:flex; align-items:center; gap: 8px;">
         <span style="font-size: 28px; filter: drop-shadow(1px 1px 0px #000) drop-shadow(-1px -1px 0px #000) drop-shadow(1px -1px 0px #000) drop-shadow(-1px 1px 0px #000);">🛝</span> Playground
@@ -1314,24 +1323,15 @@ const legendHtml = `
     <div class="embedded-legend-item" style="display:flex; align-items:center; gap: 8px;">
         <span style="font-size: 28px; filter: drop-shadow(1px 1px 0px #000) drop-shadow(-1px -1px 0px #000) drop-shadow(1px -1px 0px #000) drop-shadow(-1px 1px 0px #000);">🏐</span> Volleyball
     </div>
-    <div class="embedded-legend-item" style="display:flex; align-items:center; gap: 8px;">
-        <span style="font-size: 28px; filter: drop-shadow(1px 1px 0px #000) drop-shadow(-1px -1px 0px #000) drop-shadow(1px -1px 0px #000) drop-shadow(-1px 1px 0px #000);">🚽</span> Washrooms
-    </div>
-    <div class="embedded-legend-item" style="display:flex; align-items:center; gap: 8px;">
-        <span style="font-size: 28px; filter: drop-shadow(1px 1px 0px #000) drop-shadow(-1px -1px 0px #000) drop-shadow(1px -1px 0px #000) drop-shadow(-1px 1px 0px #000);">🚿</span> Showers
-    </div>
-    <div class="embedded-legend-item" style="display:flex; align-items:center; gap: 8px;">
-        <span style="font-size: 28px; filter: drop-shadow(1px 1px 0px #000) drop-shadow(-1px -1px 0px #000) drop-shadow(1px -1px 0px #000) drop-shadow(-1px 1px 0px #000);">🎯</span> Horseshoes
-    </div>
-    <div class="embedded-legend-item" style="display:flex; align-items:center; gap: 8px;">
-        <span style="font-size: 28px; filter: drop-shadow(1px 1px 0px #000) drop-shadow(-1px -1px 0px #000) drop-shadow(1px -1px 0px #000) drop-shadow(-1px 1px 0px #000);">💃🕺</span> Pavillion
+    <div class="embedded-legend-item" style="display:flex; align-items:center; gap: 8px; white-space: nowrap;">
+        <span style="font-size: 28px; filter: drop-shadow(1px 1px 0px #000) drop-shadow(-1px -1px 0px #000) drop-shadow(1px -1px 0px #000) drop-shadow(-1px 1px 0px #000);">🚽</span> Washrooms /&nbsp;<span style="font-size: 28px; filter: drop-shadow(1px 1px 0px #000) drop-shadow(-1px -1px 0px #000) drop-shadow(1px -1px 0px #000) drop-shadow(-1px 1px 0px #000);">🚿</span> Showers
     </div>
 </div>`;
 const legendIcon = L.divIcon({
     className: 'naked-site-label',
     html: legendHtml,
-    iconSize: [400, 900],
-    iconAnchor: [200, 450] // Anchors directly to the center coordinates
+    iconSize: [518, 1070],
+    iconAnchor: [259, 535] // Anchors directly to the center coordinates
 });
 L.marker(legendCenter, { icon: legendIcon, interactive: false}).addTo(map);
 
@@ -1339,14 +1339,19 @@ L.marker(legendCenter, { icon: legendIcon, interactive: false}).addTo(map);
 // SCALING ENGINE (Makes text shrink/grow with the map)
 // ----------------------------------------------------
 function updateLabelScale() {
-    // Leaflet's CRS.Simple scale doubles for every +1 zoom. 
-    // If zoom is 0 (1:1), scale is 1. If we zoom out negative, scale becomes a fraction.
     const currentScale = Math.pow(2, map.getZoom()); 
     document.documentElement.style.setProperty('--map-zoom-scale', currentScale);
+    const legendEl = document.querySelector('.embedded-legend-text');
+    if (legendEl) {
+        legendEl.style.paddingLeft = (18 / currentScale) + 'px';
+        legendEl.style.paddingRight = (18 / currentScale) + 'px';
+    }
 }
 // Run on load and on every zoom change
 updateLabelScale();
 map.on('zoom', updateLabelScale);
+// Also run after Leaflet has finished rendering markers into the DOM
+setTimeout(updateLabelScale, 0);
 
 // Removed B1 highlight per user request
 
