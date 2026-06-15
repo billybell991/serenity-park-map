@@ -1275,7 +1275,7 @@ L.marker([1076, 1491], {
 
 // --- IN-MAP LEGEND ---
 // The bounds you drew for the legend box
-const legendBounds = [[750, 42], [1820, 560]];
+const legendBounds = [[815, 42], [1751, 560]];
 L.rectangle(legendBounds, {
     className: 'organic-polygon', // Using the organic blur effect!
     color: '#4a3b32',
@@ -1285,7 +1285,7 @@ L.rectangle(legendBounds, {
 }).addTo(map);
 
 // Adding the scaled HTML text inside the bounds
-const legendCenter = [1285, 301]; // Center of the legend rectangle
+const legendCenter = [1283, 301]; // Center of the legend rectangle
 const legendHtml = `
 <div class="embedded-legend-text">
     <h2>Legend</h2>
@@ -1330,8 +1330,8 @@ const legendHtml = `
 const legendIcon = L.divIcon({
     className: 'naked-site-label',
     html: legendHtml,
-    iconSize: [518, 1070],
-    iconAnchor: [259, 535] // Anchors directly to the center coordinates
+    iconSize: [518, 936],
+    iconAnchor: [259, 468] // Anchors directly to the center coordinates
 });
 L.marker(legendCenter, { icon: legendIcon, interactive: false}).addTo(map);
 
