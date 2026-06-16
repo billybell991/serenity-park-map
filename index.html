@@ -24,8 +24,9 @@
     -->
 
     <!-- Undo Button -->
-    <button id="undo-btn" class="admin-btn" style="display: none;">Undo Last Action</button>
+    <button id="undo-btn" class="admin-btn">Undo Last Action</button>
     <button id="freehand-btn" class="admin-btn" style="top: 70px; display: none;">✏️ Freehand Draw</button>
+    <button id="paint-btn" class="admin-btn" style="top: 110px; display: none;">🖌️ Paint</button>
 
     <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
@@ -33,7 +34,23 @@
     <!-- Leaflet Geoman JS (Drawing Tools) -->
     <script src="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.min.js"></script>
 
-    <!-- Our custom script -->
+    <!-- Add to the bottom of the map controls in index.html -->
+    <div id="paint-controls" class="admin-control-panel paint-panel" style="display: none; position: absolute; left: 50px; top: 10px; z-index: 1000; background: white; padding: 10px; border-radius: 5px; box-shadow: 0 1px 5px rgba(0,0,0,0.4);">
+        <div style="margin-bottom: 5px;">
+            <label for="brush-size">Size: <span id="brush-size-val">10</span>px</label>
+            <input type="range" id="brush-size" min="1" max="50" value="10" style="width: 100%;">
+        </div>
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 5px;">
+            <input type="color" id="brush-color" value="#5a93b0">
+            <button id="eyedropper-btn" style="padding: 2px 5px; cursor: pointer;">💉 Sample Color</button>
+        </div>
+        <button id="paint-commit-btn" style="width: 100%; background: #4CAF50; color: white; border: none; padding: 5px; cursor: pointer;">Finish & Commit Strokes</button>
+    </div>
+
+    <!-- Our custom script MUST BE BELOW UI ELEMENTS SO IT CAN FIND THEM -->
     <script src="script.js"></script>
+
+    <!-- Make sure html2canvas is loaded for the eyedropper -->
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 </body>
 </html>

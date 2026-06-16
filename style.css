@@ -207,3 +207,9 @@ body, html {
 .leaflet-popup-close-button {
     display: none !important;
 }
+.sharp-paint { filter: none !important; }
+
+.sharp-paint { stroke: none !important; stroke-width: 0 !important; outline: none !important; box-shadow: none !important; }
+
+
+.sharp-paint { shape-rendering: crispEdges !important; }
