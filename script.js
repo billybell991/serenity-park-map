@@ -1,4 +1,4 @@
-const ADMIN_MODE = false;
+const ADMIN_MODE = true;
 
 // 1. Set up a simple coordinate system (non-geographical, just for images)
 const map = L.map('map', {
@@ -28,6 +28,8 @@ L.marker([385.6, 1856.3], { icon: L.divIcon({ className: 'naked-site-label', htm
 L.marker([608.8, 1900.8], { icon: L.divIcon({ className: 'naked-site-label', html: '<div class="scalable-label" style="font-size: 28px;  filter: drop-shadow(1px 1px 0px rgba(0,0,0,1)) drop-shadow(-1px -1px 0px rgba(0,0,0,1)) drop-shadow(1px -1px 0px rgba(0,0,0,1)) drop-shadow(-1px 1px 0px rgba(0,0,0,1));">🅿️</div>', iconSize: [60,60], iconAnchor: [30,30] })}).addTo(map).bindPopup("<b>Parking</b>");
 
 // --- MAP PATCHES (Covering up old printed data) ---
+// --- RECENT PAINT PAINTS ---
+
 
 const chPatchCoords = [
     [78.5, 1902.1], [137.9, 1902.1], [137.9, 1972.9], [78.5, 1972.9]
@@ -1364,7 +1366,14 @@ const drawnItems = []; // Array to track drawn things for Undo button
 document.getElementById('undo-btn').addEventListener('click', function() {
     if (drawnItems.length > 0) {
         const lastItem = drawnItems.pop();
-        map.removeLayer(lastItem);
+        if (lastItem && lastItem.type === 'paint') {
+            map.removeLayer(lastItem.layer);
+            if (window._paintStrokes && window._paintStrokes.length >= lastItem.dots) {
+                window._paintStrokes.splice(-lastItem.dots);
+            }
+        } else if (lastItem) {
+            map.removeLayer(lastItem);
+        }
         console.log("Undid last action.");
     }
 });
@@ -1485,3 +1494,174 @@ map.on('pm:create', function(e) {
 
     layer.bindPopup(`<div style="max-height:150px;overflow:auto;"><b>Shape Coords:</b><br><pre>${coordsText}</pre></div>`).openPopup();
 });
+
+// ----------------------------------------------------
+// CUSTOM PAINT BRUSH TOOL
+// ----------------------------------------------------
+let isDrawingPaint = false;
+let currentPaintGroup = null; 
+let currentPaintStrokeDotsCount = 0; 
+
+window._paintStrokes = window._paintStrokes || [];
+const paintBtn = document.getElementById('paint-btn');
+const paintControls = document.getElementById('paint-controls');
+const brushSize = document.getElementById('brush-size');
+const brushSizeVal = document.getElementById('brush-size-val');
+const brushColor = document.getElementById('brush-color');
+const eyedropperBtn = document.getElementById('eyedropper-btn');
+const paintCommitBtn = document.getElementById('paint-commit-btn');
+
+// Stop clicks from bleeding through the UI panel onto the map!
+if(paintControls) L.DomEvent.disableClickPropagation(paintControls);
+const undoBtnNode = document.getElementById('undo-btn');
+if(undoBtnNode) L.DomEvent.disableClickPropagation(undoBtnNode);
+const freehandBtnNode = document.getElementById('freehand-btn');
+if(freehandBtnNode) L.DomEvent.disableClickPropagation(freehandBtnNode);
+if(paintBtn) L.DomEvent.disableClickPropagation(paintBtn);
+
+if (ADMIN_MODE && paintBtn) {
+    paintBtn.style.display = 'block';
+}
+
+if(brushSize) {
+    brushSize.addEventListener('input', (e) => {
+        if(brushSizeVal) brushSizeVal.innerText = e.target.value;
+    });
+}
+
+if(paintBtn) {
+    paintBtn.addEventListener('click', function() {
+        isDrawingPaint = !isDrawingPaint;
+        if (isDrawingPaint) {
+            paintBtn.style.background = "#2ecc71";
+            paintBtn.style.color = "white";
+            paintBtn.innerText = "🛑 Stop Paint";
+            paintControls.style.display = "block";
+            map.dragging.disable();
+        } else {
+            paintBtn.style.background = "#fff";
+            paintBtn.style.color = "black";
+            paintBtn.innerText = "🖌️ Paint";
+            paintControls.style.display = "none";
+            map.dragging.enable();
+        }
+    });
+}
+
+let isPaintingNow = false;
+let _eyedropperActive = false; 
+
+map.on('mousedown', function(e) {
+    if (!isDrawingPaint || _eyedropperActive) return; 
+    isPaintingNow = true;
+
+    currentPaintGroup = L.featureGroup().addTo(map);
+    currentPaintStrokeDotsCount = 0;
+    
+    drawnItems.push({
+        type: 'paint',
+        layer: currentPaintGroup,
+        dots: 0 
+    });
+
+    dropPaintDot(e.latlng);
+});
+
+map.on('mousemove', function(e) {
+    if (!isDrawingPaint || !isPaintingNow || _eyedropperActive) return;
+    dropPaintDot(e.latlng);
+});
+
+map.on('mouseup', function() {
+    if (!isDrawingPaint || !isPaintingNow) return;
+    isPaintingNow = false;
+});
+
+function dropPaintDot(latlng) {
+    if(!brushSize || !brushColor) return;
+    const radius = parseInt(brushSize.value, 10);
+    const color = brushColor.value;
+    
+    const circle = L.circle([latlng.lat, latlng.lng], {
+        radius: radius,
+        stroke: false,
+        weight: 0,
+        fillColor: color,
+        fillOpacity: 1,
+        className: 'sharp-paint'
+    }).addTo(currentPaintGroup); 
+    
+    window._paintStrokes.push({
+        lat: latlng.lat,
+        lng: latlng.lng,
+        radius: radius,
+        color: color
+    });
+    
+    if (drawnItems.length > 0) {
+        drawnItems[drawnItems.length - 1].dots++;
+    }
+}
+
+if(eyedropperBtn) {
+    eyedropperBtn.addEventListener('click', async () => {
+        if (window.EyeDropper) {
+            try {
+                const eyeDropper = new EyeDropper();
+                const result = await eyeDropper.open();
+                brushColor.value = result.sRGBHex;
+                return; 
+            } catch (e) {
+                console.error("EyeDropper API cancelled or failed:", e);
+                return; 
+            }
+        }
+        if (!_eyedropperActive) {
+            _eyedropperActive = true;
+            eyedropperBtn.style.background = "#ff9800";
+            eyedropperBtn.innerText = "Target Map Area...";
+            document.body.style.cursor = "crosshair";
+        } else {
+            _eyedropperActive = false;
+            eyedropperBtn.style.background = "";
+            eyedropperBtn.innerText = "💉 Sample Color";
+            document.body.style.cursor = "default";
+        }
+    });
+}
+
+map.on('click', function(e) {
+    if (_eyedropperActive) {
+        _eyedropperActive = false;
+        if(eyedropperBtn) {
+            eyedropperBtn.style.background = "";
+            eyedropperBtn.innerText = "Sampling...";
+        }
+        const layerCanvas = document.querySelector('.leaflet-image-layer');
+        if (layerCanvas && typeof html2canvas !== 'undefined') {
+            html2canvas(document.body).then(canvas => {
+                const ctx = canvas.getContext('2d');
+                const pt = e.containerPoint;
+                const mapRect = document.getElementById('map').getBoundingClientRect();
+                const x = pt.x + mapRect.left;
+                const y = pt.y + mapRect.top;
+                const pixel = ctx.getImageData(x, y, 1, 1).data;
+                function rgbToHex(r, g, b) {
+                    return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+                }
+                if(brushColor) brushColor.value = rgbToHex(pixel[0], pixel[1], pixel[2]);
+                if(eyedropperBtn) eyedropperBtn.innerText = "💉 Sample Color";
+                document.body.style.cursor = "default";
+            });
+        }
+    }
+});
+
+if(paintCommitBtn) {
+    paintCommitBtn.addEventListener('click', () => {
+        alert("Paint strokes currently held in memory! Open developer console or use AI bot to dump window._paintStrokes array into script.js permanently.");
+        console.log("window._paintStrokes =", JSON.stringify(window._paintStrokes));
+    });
+}
+
+window._leafletMap = map;
